@@ -13,6 +13,7 @@ using pii = pair<int, int>;
 #define endl '\n'
 
 /*-------------------------------------------*/
+
 // 前缀和版本
 #define MAXN 100005
 
