@@ -35,7 +35,6 @@ using pll = pair<ll, ll>;
 
 #define pb push_back
 #define pf push_front
-#define mp make_pair
 #define all(x) (x).begin(), (x).end()
 #define fi first
 #define se second
@@ -47,6 +46,6 @@ int main()
 {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
-
+    cout << fixed;
     return 0;
 }
