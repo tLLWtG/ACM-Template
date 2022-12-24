@@ -10,8 +10,9 @@
 * Module_Windows
 * Module_C
 * Prime
-* QuickSort
+* Sort
 * Topology_Sort
+* Sparse_Table
 
 > More to be added......
 
@@ -31,3 +32,13 @@
 8. QuickSort
 9. Topology_Sort
 
+### 2022.12.24
+
+1. QuickSort -> Sort
+2. Sparse_Table
+3. add MIT LICENSE
+
+
+# LICENSE
+
+This project is licensed under the [MIT License](https://mit-license.org).
