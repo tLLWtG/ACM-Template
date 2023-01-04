@@ -20,32 +20,41 @@
 #include <random>
 #include <bitset>
 #include <array>
+#include <iomanip>
 
 using namespace std;
 
 using ll = long long;
-using ld = long double;
-using uint = unsigned int;
-using ull = unsigned long long;
-template <typename T>
-using pair2 = pair<T, T>;
 using pii = pair<int, int>;
-using pli = pair<ll, int>;
-using pll = pair<ll, ll>;
 
 #define pb push_back
-#define pf push_front
 #define all(x) (x).begin(), (x).end()
 #define fi first
 #define se second
 #define endl '\n'
 
+#define debug(x)                          \
+    {                                     \
+        cerr << #x << " = " << x << endl; \
+    }
+#define debugfull(x)                                                      \
+    {                                                                     \
+        cerr << #x << " = " << x << " (line " << __LINE__ << ")" << endl; \
+    }
+
 /*-------------------------------------------*/
 
 int main()
 {
-    ios_base::sync_with_stdio(0);
+    // clock_t st = clock(), ed;
+    ios::sync_with_stdio(0);
     cin.tie(0);
-    cout << fixed;
+    cout << setprecision(15) << fixed;
+    
+
+
+    // ed = clock();
+    // double endtime = (double)(ed - st) / CLOCKS_PER_SEC;
+    // cout << "Total time: " << endtime << endl;
     return 0;
 }

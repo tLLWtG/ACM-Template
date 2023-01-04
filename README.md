@@ -1,42 +1,68 @@
 # ACM-Template
-> This is tllwtg's ACM Templates.
+
+**This is tllwtg's ACM Templates.**
 
 # List
 
-* DSU
-* Segment-Tree
 * Binary_Indexed_Tree
-* Module_Linux
-* Module_Windows
+* Binary_Search
+* DSU
+* Hash
+* KMP
 * Module_C
+* Module_Cpp_win
+* Module_Cpp
+* Monotone_Queue
+* Monotone_Stack
+* n_D_Prefix_Sum
 * Prime
+* Quick_Pow
+* Segment_Tree
 * Sort
-* Topology_Sort
 * Sparse_Table
+* Ternary_Search
+* Topology_Sort
 
-> More to be added......
+> Total: 18 templates
+> 
+> and more to be added......
 
 
 
 # UPD History
 
-### 2022.11.28
+### 2023.01.04
 
-1. DSU
-2. Segment-Tree
-3. Binary_Indexed_Tree
-4. Module_Linux
-5. Module_Windows
-6. Module_C
-7. Prime
-8. QuickSort
-9. Topology_Sort
+1. Binary_Search
+2. Hash
+3. KMP
+4. Monotone_Queue
+5. Monotone_Stack
+6. n_D_Prefix_Sum
+7. Quick_Pow
+9. Ternary_Search 
+
+* Module_Linux -> Module_Cpp
+* Module_Windows -> Module_Cpp_win
 
 ### 2022.12.24
 
-1. QuickSort -> Sort
-2. Sparse_Table
-3. add MIT LICENSE
+1. Sparse_Table
+
+* add MIT LICENSE
+* QuickSort -> Sort
+
+### 2022.11.28
+
+1. Binary_Indexed_Tree
+2. DSU
+3. Module_C
+4. Module_Linux
+5. Module_Windows
+6. Prime
+7. QuickSort
+8. Segment_Tree
+9. Topology_Sort
 
 
 # LICENSE

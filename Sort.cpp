@@ -37,6 +37,7 @@ void myqsort(int arr[], int l, int r)
     myqsort(arr, l, j);
     myqsort(arr, j + 1, r);
 }
+// find the k-th order statistic with qsprt
 
 // 2. Merge sort
 
@@ -62,3 +63,4 @@ void msort(int b, int e)
     for (int l = b; l <= e; ++l)
         arr[l] = brr[l];
 }
+// Count Inversions with msort
