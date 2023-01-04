@@ -21,6 +21,7 @@ using pii = pair<int, int>;
     }
 
 /*-------------------------------------------*/
+
 #define MAXN 100005
 
 int arr[MAXN];

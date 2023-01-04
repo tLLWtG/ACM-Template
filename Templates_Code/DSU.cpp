@@ -6,17 +6,26 @@ using ll = long long;
 using pii = pair<int, int>;
 
 #define pb push_back
-#define mp make_pair
 #define all(x) (x).begin(), (x).end()
 #define fi first
 #define se second
 #define endl '\n'
 
+#define debug(x)                          \
+    {                                     \
+        cerr << #x << " = " << x << endl; \
+    }
+#define debugfull(x)                                                      \
+    {                                                                     \
+        cerr << #x << " = " << x << " (line " << __LINE__ << ")" << endl; \
+    }
+
 /*-------------------------------------------*/
+
 #define MAXN 100005
 
-int pa[MAXN]; // 父母
-int rk[MAXN]; // 秩
+int pa[MAXN]; // parant
+int rk[MAXN]; // rank
 
 void init(int n)
 {
@@ -33,7 +42,7 @@ int find(int x)
         return x;
     else
     {
-        //路径压缩
+        // reset pa
         pa[x] = find(pa[x]);
         return pa[x];
     }
@@ -44,7 +53,7 @@ void merge(int x, int y)
     if (x == y)
         return;
     int xpa = find(x), ypa = find(y);
-    //按秩合并
+    // merge according to rank
     if (rk[x] <= rk[y])
         pa[x] = ypa;
     else

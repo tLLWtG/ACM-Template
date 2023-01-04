@@ -6,18 +6,25 @@ using ll = long long;
 using pii = pair<int, int>;
 
 #define pb push_back
-#define mp make_pair
 #define all(x) (x).begin(), (x).end()
 #define fi first
 #define se second
 #define endl '\n'
 
+#define debug(x)                          \
+    {                                     \
+        cerr << #x << " = " << x << endl; \
+    }
+#define debugfull(x)                                                      \
+    {                                                                     \
+        cerr << #x << " = " << x << " (line " << __LINE__ << ")" << endl; \
+    }
+
 /*-------------------------------------------*/
 
-// Kahn算法
-//  deg是入度，在存图的时候需要录入数据
-//  A是排序后的数组
-// 字典序最小时用priority_queue
+// Kahn
+//  deg is in
+// use priority_queue for lexicographical order
 #define MAXN 0x3f3f3f
 int deg[MAXN], A[MAXN];
 vector<int> edges[MAXN];
@@ -36,7 +43,7 @@ bool toposort(int n)
         for (auto to : edges[t])
         {
             deg[to]--;
-            if (deg[to] == 0) // 出现了新的入度为0的点
+            if (deg[to] == 0) // in is zero
                 q.push(to);
         }
     }
