@@ -9,9 +9,9 @@
 * DSU
 * Hash
 * KMP
-* Module_C
-* Module_Cpp_win
-* Module_Cpp
+* Snippets_C
+* Snippets_Cpp
+* Snippets_Cpp_win
 * Monotone_Queue
 * Monotone_Stack
 * n_D_Prefix_Sum
@@ -55,8 +55,8 @@
 1. Binary_Indexed_Tree
 2. DSU
 3. Snippets_C
-4. Snippets_Cpp_win
-5. Snippets_Cpp
+4. Snippets_Cpp
+5. Snippets_Cpp_win
 6. Prime
 7. QuickSort
 8. Segment_Tree
