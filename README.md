@@ -42,8 +42,6 @@
 7. Quick_Pow
 9. Ternary_Search 
 
-* Module_Linux -> Module_Cpp
-* Module_Windows -> Module_Cpp_win
 
 ### 2022.12.24
 
@@ -56,9 +54,9 @@
 
 1. Binary_Indexed_Tree
 2. DSU
-3. Module_C
-4. Module_Linux
-5. Module_Windows
+3. Snippets_C
+4. Snippets_Cpp_win
+5. Snippets_Cpp
 6. Prime
 7. QuickSort
 8. Segment_Tree
