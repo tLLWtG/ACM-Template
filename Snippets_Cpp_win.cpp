@@ -49,7 +49,7 @@ int main()
     // clock_t st = clock(), ed;
     ios::sync_with_stdio(0);
     cin.tie(0);
-    cout << setprecision(15) << fixed;
+    // cout << setprecision(15) << fixed;
     
 
 
