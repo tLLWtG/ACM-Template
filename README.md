@@ -4,9 +4,13 @@
 
 # List
 
+* Big_Integer
 * Binary_Indexed_Tree
 * Binary_Search
+* Difference
 * DSU
+* Fast_IO
+* Functions
 * Hash
 * KMP
 * Snippets_C
@@ -23,13 +27,20 @@
 * Ternary_Search
 * Topology_Sort
 
-> Total: 18 templates
+> Total: 22 templates
 > 
 > and more to be added......
 
 
 
 # UPD History
+
+### 2023.01.19
+
+1. Big_Integer
+2. Difference
+3. Fast_IO
+4. Functions
 
 ### 2023.01.04
 
