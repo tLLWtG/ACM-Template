@@ -54,10 +54,10 @@ void merge(int x, int y)
         return;
     int xpa = find(x), ypa = find(y);
     // merge according to rank
-    if (rk[x] <= rk[y])
-        pa[x] = ypa;
+    if (rk[xpa] <= rk[ypa])
+        pa[xpa] = ypa;
     else
-        pa[y] = xpa;
-    if (rk[x] == rk[y])
-        ++rk[y];
+        pa[ypa] = xpa;
+    if (rk[xpa] == rk[ypa])
+        ++rk[ypa];
 }
