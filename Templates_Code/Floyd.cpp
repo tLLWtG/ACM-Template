@@ -22,33 +22,26 @@ using pii = pair<int, int>;
 
 /*-------------------------------------------*/
 
-// prefix sum version
-// also able to update range with difference
+#define MAXN 10005
 
-#define MAXN 100005
-
-ll tree[MAXN];
-
-ll lowbit(ll x)
+struct edge
 {
-    return x & (-x);
-}
+    int v, w;
+};
 
-void update(ll index, ll x)
-{
-    for (ll pos = index; pos < MAXN; pos += lowbit(pos))
-        tree[pos] += x;
-}
-ll query(ll n)
-{
-    ll sum = 0;
-    for (ll i = n; i; i -= lowbit(i))
-        sum += tree[i];
-    return sum;
-}
+vector<vector<edge>> e(MAXN);
+int dp[MAXN][MAXN];
 
-// (a, b]
-ll query(ll a, ll b)
+void Floyd(int n)
 {
-    return query(b) - query(a);
+    memset(dp, 0x3f, sizeof(dp));
+    for (int i = 1; i <= n; ++i)
+        dp[i][i] = 0;
+    for (int i = 1; i <= n; ++i)
+        for (auto &x : e[i])
+            dp[i][x.v] = x.w;
+    for (int k = 1; k <= n; ++k)
+        for (int i = 1; i <= n; ++i)
+            for (int j = 1; j <= n; ++j)
+                dp[i][j] = min(dp[i][j], dp[i][k] + dp[k][j]);
 }

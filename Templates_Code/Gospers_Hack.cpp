@@ -22,33 +22,29 @@ using pii = pair<int, int>;
 
 /*-------------------------------------------*/
 
-// prefix sum version
-// also able to update range with difference
-
-#define MAXN 100005
-
-ll tree[MAXN];
-
-ll lowbit(ll x)
+void GospersHack(int k, int n)
 {
-    return x & (-x);
+    int cur = (1 << k) - 1;
+    int limit = (1 << n);
+    while (cur < limit)
+    {
+        // do something
+        int lb = cur & -cur;
+        int r = cur + lb;
+        cur = ((r ^ cur) >> __builtin_ctz(lb) + 2) | r;
+        // or：cur = (((r ^ cur) >> 2) / lb) | r;
+    }
 }
 
-void update(ll index, ll x)
-{
-    for (ll pos = index; pos < MAXN; pos += lowbit(pos))
-        tree[pos] += x;
-}
-ll query(ll n)
-{
-    ll sum = 0;
-    for (ll i = n; i; i -= lowbit(i))
-        sum += tree[i];
-    return sum;
-}
+// GospersHack(3, 5)
 
-// (a, b]
-ll query(ll a, ll b)
-{
-    return query(b) - query(a);
-}
+// 00111
+// 01011
+// 01101
+// 01110
+// 10011
+// 10101
+// 10110
+// 11001
+// 11010
+// 11100

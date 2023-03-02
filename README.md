@@ -4,18 +4,25 @@
 
 # List
 
+* Bellman_Ford
 * Big_Integer
 * Binary_Indexed_Tree
 * Binary_Search
 * Difference
+* Dijkstra
 * DSU
 * Fast_IO
+* Floyd
 * Functions
+* Gospers_Hack
+* Graph
 * Hash
+* Johnson
 * KMP
 * Snippets_C
 * Snippets_Cpp
 * Snippets_Cpp_win
+* Snippets_others
 * Monotone_Queue
 * Monotone_Stack
 * n_D_Prefix_Sum
@@ -27,13 +34,23 @@
 * Ternary_Search
 * Topology_Sort
 
-> Total: 22 templates
+> Total: 29 templates
 > 
 > and more to be added......
 
 
 
 # UPD History
+
+### 2023.03.02
+
+1. Bellman_Ford
+2. Dijkstra
+3. Floyd
+4. Gospers_Hack
+5. Graph
+6. Johnson
+7. Snippets_others
 
 ### 2023.01.19
 
