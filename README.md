@@ -2,7 +2,10 @@
 
 **This is tllwtg's ACM Templates.**
 
-# List
+| [Algorithm](https://github.com/tLLWtG/ACM-Template/tree/main/Algorithm) | [Construction](https://github.com/tLLWtG/ACM-Template/tree/main/Construction) | [Graph](https://github.com/tLLWtG/ACM-Template/tree/main/Graph) | [Math](https://github.com/tLLWtG/ACM-Template/tree/main/Math) | [Others](https://github.com/tLLWtG/ACM-Template/tree/main/Others) | [Snippets](https://github.com/tLLWtG/ACM-Template/tree/main/Snippets) |
+| :---------------------------------------------------------------------: | :---------------------------------------------------------------------------: | :-------------------------------------------------------------: | :-----------------------------------------------------------: | :---------------------------------------------------------------: | :-------------------------------------------------------------------: |
+
+# Full List
 
 * Bellman_Ford
 * Big_Integer
@@ -93,4 +96,4 @@
 
 # LICENSE
 
-This project is licensed under the [MIT License](https://mit-license.org).
+This project is licensed under the [MIT License](https://github.com/tLLWtG/ACM-Template/blob/main/LICENSE).
