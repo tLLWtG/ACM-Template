@@ -13,6 +13,9 @@
 * Binary_Search
 * Difference
 * Dijkstra
+* DP_Knapsack
+* DP_Range
+* DP_Tree
 * DSU
 * Fast_IO
 * Floyd
@@ -22,6 +25,8 @@
 * Hash
 * Johnson
 * KMP
+* Kruskal
+* LCA
 * Snippets_C
 * Snippets_Cpp
 * Snippets_Cpp_win
@@ -29,6 +34,7 @@
 * Monotone_Queue
 * Monotone_Stack
 * n_D_Prefix_Sum
+* Prim
 * Prime
 * Quick_Pow
 * Segment_Tree
@@ -37,13 +43,22 @@
 * Ternary_Search
 * Topology_Sort
 
-> Total: 29 templates
+> Total: 35 templates
 > 
 > and more to be added......
 
 
 
 # UPD History
+
+### 2023.03.21
+
+1. DP_Knapsack
+2. DP_Range
+3. DP_Tree
+4. Kruskal
+5. LCA
+6. Prim
 
 ### 2023.03.02
 
