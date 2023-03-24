@@ -62,3 +62,25 @@ void dij(int n, int s)
         }
     }
 }
+
+// m >> n
+
+void dij2(int n, int s)
+{
+    memset(dis, 0x3f, sizeof(dis));
+    dis[s] = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        int u = 0, mind = 0x3f3f3f3f;
+        for (int j = 1; j <= n; j++)
+            if (!vis[j] && dis[j] < mind)
+                u = j, mind = dis[j];
+        vis[u] = 1;
+        for (auto x : e[u])
+        {
+            int v = x.v, w = x.w;
+            if (dis[v] > dis[u] + w)
+                dis[v] = dis[u] + w;
+        }
+    }
+}

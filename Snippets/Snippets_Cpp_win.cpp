@@ -27,7 +27,7 @@ using namespace std;
 using ll = long long;
 using pii = pair<int, int>;
 
-#define pb push_back
+#define eb emplace_back
 #define all(x) (x).begin(), (x).end()
 #define fi first
 #define se second

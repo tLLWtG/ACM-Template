@@ -31,6 +31,12 @@
 * string.compare
 * set.lowerbound
 
+### binary
+
+* __builtin_ffs
+* __builtin_clz
+* __builtin_ctz
+* __builtin_popcount
 
 ### others
 
