@@ -17,9 +17,11 @@
 * DP_Range
 * DP_Tree
 * DSU
+* Exgcd
 * Fast_IO
 * Floyd
 * Functions
+* GCD
 * Gospers_Hack
 * Graph
 * Hash
@@ -27,10 +29,13 @@
 * KMP
 * Kruskal
 * LCA
+* LCM
 * Snippets_C
 * Snippets_Cpp
 * Snippets_Cpp_win
 * Snippets_others
+* Modular_Multiplicative_Inverse
+* Modulo_For_Rational_Numbers
 * Monotone_Queue
 * Monotone_Stack
 * n_D_Prefix_Sum
@@ -42,14 +47,24 @@
 * Sparse_Table
 * Ternary_Search
 * Topology_Sort
+* Tricks
 
-> Total: 35 templates
+> Total: 41 templates
 > 
 > and more to be added......
 
 
 
 # UPD History
+
+### 2023.03.28
+
+1. Exgcd
+2. GCD
+3. LCM
+4. Modular_Multiplicative_Inverse
+5. Modulo_For_Rational_Numbers
+6. Tricks
 
 ### 2023.03.21
 
