@@ -11,6 +11,7 @@
 * Big_Integer
 * Binary_Indexed_Tree
 * Binary_Search
+* Calculation
 * Difference
 * Dijkstra
 * DP_Knapsack
@@ -27,6 +28,7 @@
 * Hash
 * Johnson
 * KMP
+* Kosaraju
 * Kruskal
 * LCA
 * LCM
@@ -45,17 +47,26 @@
 * Segment_Tree
 * Sort
 * Sparse_Table
+* Tarjan
 * Ternary_Search
 * Topology_Sort
 * Tricks
+* Trie
 
-> Total: 41 templates
+> Total: 45 templates
 > 
 > and more to be added......
 
 
 
 # UPD History
+
+### 2023.04.30
+
+1. Calculation
+2. Kosaraju
+3. Tarjan
+4. Trie
 
 ### 2023.03.28
 
