@@ -93,7 +93,8 @@ void dp6(int n)
     for (int k = 1; k <= tsz; ++k)
         for (int j = W; j >= 0; --j)
             for (int i = 1; i <= cnt[k]; ++i)
-                dp[j] = max(dp[j], dp[j - w[t[k][i]]] + v[t[k][i]]);
+                if (j >= w[t[k][j]])
+                    dp[j] = max(dp[j], dp[j - w[t[k][i]]] + v[t[k][i]]);
 }
 
 // record for 01

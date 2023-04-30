@@ -117,3 +117,84 @@ void dp_tree2()
         }
     cout << id << endl;
 }
+
+// CF 1822F
+
+// max distance
+
+vector<vector<int>> e(2e5 + 5);
+vector<ll> dep(2e5 + 5, 0), down(2e5 + 5), up(2e5 + 5);
+
+ll n;
+
+void predfs(int u, int fa)
+{
+    dep[u] = dep[fa] + 1;
+    down[u] = up[u] = 0;
+    for (auto &x : e[u])
+    {
+        if (x == fa)
+            continue;
+        predfs(x, u);
+        down[u] = max(down[u], down[x] + 1);
+    }
+}
+
+void dfs(int u, int fa)
+{
+    ll max1 = -n - 1, max2 = -n - 1;
+    for (auto &x : e[u])
+    {
+        if (x == fa)
+            continue;
+        if (down[x] > max1)
+        {
+            max2 = max1;
+            max1 = down[x];
+        }
+        else
+        {
+            max2 = max(max2, down[x]);
+        }
+    }
+    for (auto &x : e[u])
+    {
+        if (x == fa)
+            continue;
+        up[x] = max(up[u] + 1, (down[x] == max1 ? (max2 + 2) : (max1 + 2)));
+        dfs(x, u);
+    }
+}
+
+int main()
+{
+    // clock_t st = clock(), ed;
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    // cout << setprecision(15) << fixed;
+    ll T, n, k, c, u, v;
+    dep[0] = -1;
+    cin >> T;
+    while (T--)
+    {
+        cin >> n >> k >> c;
+        for (int i = 1; i < n; ++i)
+        {
+            cin >> u >> v;
+            e[u].pb(v);
+            e[v].pb(u);
+        }
+        predfs(1, 0);
+        ll ans = -1;
+        dfs(1, 0);
+        for (int i = 1; i <= n; ++i)
+            ans = max(ans, k * max(down[i], up[i]) - c * dep[i]);
+        cout << ans << endl;
+        for (int i = 1; i <= n; i++)
+            e[i].clear();
+    }
+    // ed = clock();
+    // double endtime = (double)(ed - st) / CLOCKS_PER_SEC;
+    // cout << "Total time: " << endtime << endl;
+    return 0;
+}
