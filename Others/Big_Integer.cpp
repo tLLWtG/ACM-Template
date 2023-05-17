@@ -22,6 +22,39 @@ using pii = pair<int, int>;
 
 /*-------------------------------------------*/
 
+// __int128 for gcc (64)
+
+__int128 read()
+{
+    __int128 x = 0, f = 1;
+    char ch = getchar();
+    while (ch < '0' || ch > '9') {
+        if (ch == '-') f = -1;
+        ch = getchar();
+    }
+    while (ch >= '0' && ch <= '9') {
+        x = x * 10 + ch - '0';
+        ch = getchar();
+    }
+    return x * f;
+}
+
+void print(__int128 x)
+{
+    if (x < 0) {
+        putchar('-');
+        x = -x;
+    }
+    string op = "";
+    while (x)
+    {
+        op.pb(x % 10 + '0');
+        x /= 10;
+    }
+    reverse(all(op));
+    cout << op;
+}
+
 // + - * / = compare cout
 // link: https://github.com/Baobaobear/MiniBigInteger
 

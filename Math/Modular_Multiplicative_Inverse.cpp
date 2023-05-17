@@ -59,13 +59,14 @@ ll inv1(ll a, ll b)
 
 ll inv2(ll a, ll b)
 {
-    ll ans = 1;
+    ll ans = 1, M = b;
     b -= 2;
     while (b)
     {
         if (b & 1)
-            ans = (a * ans) % b;
-        a = (a * a) % b;
+            ans = (a * ans) % M;
+        a = (a * a) % M;
+        b >>= 1;
     }
     return ans;
 }

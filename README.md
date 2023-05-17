@@ -12,6 +12,7 @@
 * Binary_Indexed_Tree
 * Binary_Search
 * Calculation
+* Combination
 * Difference
 * Dijkstra
 * DP_Knapsack
@@ -26,6 +27,7 @@
 * Gospers_Hack
 * Graph
 * Hash
+* Heap
 * Johnson
 * KMP
 * Kosaraju
@@ -36,6 +38,7 @@
 * Snippets_Cpp
 * Snippets_Cpp_win
 * Snippets_others
+* ModInt
 * Modular_Multiplicative_Inverse
 * Modulo_For_Rational_Numbers
 * Monotone_Queue
@@ -44,6 +47,7 @@
 * Prim
 * Prime
 * Quick_Pow
+* Search
 * Segment_Tree
 * Sort
 * Sparse_Table
@@ -53,13 +57,20 @@
 * Tricks
 * Trie
 
-> Total: 45 templates
+> Total: 49 templates
 > 
 > and more to be added......
 
 
 
 # UPD History
+
+### 2023.05.17
+
+1. Combination
+2. Heap
+3. ModInt
+4. Search
 
 ### 2023.04.30
 

@@ -48,6 +48,7 @@ bool isnp[MAXN];
 vector<int> primes;
 void init2()
 {
+    isnp[0] = isnp[1] = 1;
     for (int i = 2; i <= MAXN; i++)
     {
         if (!isnp[i])
