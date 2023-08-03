@@ -31,6 +31,32 @@
     vec.resize(unique(all(vec)) - vec.begin());
     ```
 
+* count how many segments covering the range
+    ```cpp
+    vector<pii> arr(n);
+    vector<int> node(2 * n), cnt(2 * n, 0);
+    for (int i = 0; i < n; ++i)
+    {
+        cin >> arr[i].fi >> arr[i].se;
+        node[k++] = arr[i].fi;
+        node[k++] = arr[i].se;
+    }
+    sort(all(node));
+    int N = unique(all(node)) - node.begin();
+    for (int i = 0; i < n; ++i)
+    {
+        cnt[lower_bound(node.begin(), node.begin() + N, arr[i].fi) - node.begin()]++;
+        cnt[lower_bound(node.begin(), node.begin() + N, arr[i].se) - node.begin()]--;
+    }
+    int cur = 0;
+    for (int i = 0; i < N - 1; ++i)
+    {
+        cur += cnt[i];
+        // cur is the number
+        int len = node[i + 1] - node[i];
+    }
+    ```
+
 * tie and tuple
     ```cpp
     tuple<int, int, int, char> t(3, 4, 5, 'g');

@@ -41,6 +41,7 @@ double ternary_search()
         else
             l = mid;
     }
+    return l; // ?
 }
 
 int ternary_ans()

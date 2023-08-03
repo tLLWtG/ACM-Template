@@ -22,42 +22,53 @@ using pii = pair<int, int>;
 
 /*-------------------------------------------*/
 
-#define MAXN 100005
-
-int pa[MAXN]; // parant
-int rk[MAXN]; // rank
-
-void init(int n)
+class DSU
 {
-    for (int i = 1; i <= n; ++i)
+public:
+    DSU(int _n): n(_n)
     {
-        pa[i] = i;
-        rk[i] = 1;
+        fa.resize(n + 1);
+        sz.resize(n + 1);
+        for (int i = 1; i <= n; ++i)
+        {
+            fa[i] = i;
+            sz[i] = 1;
+        }
     }
-}
 
-int find(int x)
-{
-    if (pa[x] == x)
-        return x;
-    else
+    int find(int x)
     {
-        // reset pa
-        pa[x] = find(pa[x]);
-        return pa[x];
+        if (fa[x] == x)
+            return x;
+        else
+        {
+            fa[x] = find(fa[x]);
+            return fa[x];
+        }
     }
-}
 
-void merge(int x, int y)
-{
-    if (x == y)
-        return;
-    int xpa = find(x), ypa = find(y);
-    // merge according to rank
-    if (rk[xpa] <= rk[ypa])
-        pa[xpa] = ypa;
-    else
-        pa[ypa] = xpa;
-    if (rk[xpa] == rk[ypa])
-        ++rk[ypa];
-}
+    void merge(int x, int y)
+    {
+        if (x == y)
+            return;
+        int xfa = find(x), yfa = find(y);
+        if (sz[xfa] <= sz[yfa])
+        {
+            sz[yfa] += sz[xfa];
+            fa[xfa] = yfa;
+        }
+        else
+        {
+            sz[xfa] += sz[yfa];
+            fa[yfa] = xfa;
+        }
+    }
+
+    int get_size(int x)
+    {
+        return sz[find(x)];
+    }
+private:
+    int n;
+    vector<int> fa, sz;
+};

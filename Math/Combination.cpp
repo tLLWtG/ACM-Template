@@ -31,6 +31,7 @@ ll comb(ll n, ll k)
     {
         res *= n - i + 1;
         res /= i;
+        // use inverse if you need modulo
     }
     return res;
 }
@@ -55,6 +56,9 @@ void Preprocess()
         finv[i] = (ll)finv[i - 1] * inv[i] % P;
 }
 int C(int x, int y) { return (ll)fac[x] * finv[y] % P * finv[x - y] % P; }
+// (x)
+// (y)
+
 
 // 3. Yanghui triangle
 

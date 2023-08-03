@@ -53,15 +53,41 @@ struct my_hash
 
 // string hash
 
-#define MOD ll(1e9 + 7)
+const int M = 1e9 + 7;
+const int B = 233;
 
-ll hashi(string x)
+int get_hash(const string &s)
 {
-    ll res = 0, base = 1;
-    for (int i = 0; i < x.size(); ++i)
-    {
-        res = (res + base * ll(x[i])) % MOD;
-        base = base * 131 % MOD;
-    }
+    int res = s[0], sz = s.size();
+    for (int i = 1; i < sz; ++i)
+        res = (ll(res) * B + s[i]) % M;
     return res;
+}
+
+bool cmp(const string &s, const string &t)
+{
+    return get_hash(s) == get_hash(t);
+}
+
+// substring hash(with prefix)
+
+const int N = 1e5 + 5, P = 133;
+unsigned long long h[N], p[N];
+
+unsigned long long query(int l,int r)
+{
+    return h[r] - h[l - 1] * p[r - l + 1];
+}
+
+void prepro(string &str)
+{
+    // index start from 1
+    p[0] = 1;
+    h[0] = 0;
+    int sz = str.size();
+    for(int i = 0; i < sz; i++)
+    {
+        p[i + 1] = p[i] * P;            
+        h[i + 1] = h[i] * P + str[i];
+    }
 }
