@@ -22,15 +22,20 @@ using pii = pair<int, int>;
 
 /*-------------------------------------------*/
 
-int qpow(int a, int n)
+ll qpow(ll a, ll t, ll mod)
 {
-    int res = 1;
-    while (n)
+    a %= mod;
+    ll res = 1;
+    while (t)
     {
-        if (n & 1)
-            res *= a;
-        n >>= 1;
-        a *= a;
+        if (t & 1)
+            res = res * a % mod;
+        a = a * a % mod;
+        t >>= 1;
     }
     return res;
 }
+
+// if mod is a prime number
+// t %= (mod - 1);
+// a^(t^tt) == a^(t^tt % (mod - 1))
