@@ -22,9 +22,6 @@ using pii = pair<int, int>;
 
 /*-------------------------------------------*/
 
-// to find x's lower: insert x, then use lower() to get lower's kth, and delete x
-// similarly for upper
-
 const int N = 100005;
 
 class Splay
@@ -62,6 +59,28 @@ private:
             if (fa[f])
                 rotate(get(x) == get(f) ? f : x);
         rt = x;
+    }
+
+    int lower()
+    {
+        int cur = ch[rt][0];
+        if (!cur)
+            return cur;
+        while (ch[cur][1])
+            cur = ch[cur][1];
+        splay(cur);
+        return cur;
+    }
+
+    int upper()
+    {
+        int cur = ch[rt][1];
+        if (!cur)
+            return cur;
+        while (ch[cur][0])
+            cur = ch[cur][0];
+        splay(cur);
+        return cur;
     }
 
 public:
@@ -147,26 +166,20 @@ public:
         }
     }
 
-    int lower()
+    int lower(int x)
     {
-        int cur = ch[rt][0];
-        if (!cur)
-            return cur;
-        while (ch[cur][1])
-            cur = ch[cur][1];
-        splay(cur);
-        return cur;
+        insert(x);
+        int res = val[lower()];
+        erase(x);
+        return res;
     }
 
-    int upper()
+    int upper(int x)
     {
-        int cur = ch[rt][1];
-        if (!cur)
-            return cur;
-        while (ch[cur][0])
-            cur = ch[cur][0];
-        splay(cur);
-        return cur;
+        insert(x);
+        int res = val[upper()];
+        erase(x);
+        return res;
     }
 
     void erase(int k)
