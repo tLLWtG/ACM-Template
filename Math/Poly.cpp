@@ -37,7 +37,7 @@ int qpow(int a, int t)
     return s;
 }
 
-// FNNT
+// FNTT
 
 namespace FFT
 {
