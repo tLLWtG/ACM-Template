@@ -183,6 +183,24 @@ namespace FFT
         return ans;
     }
 
+    poly PolyPow(const poly &a, int b, int k)
+    {
+        poly res(1, 1);
+        poly aa(a);
+        while (b)
+        {
+            aa.resize(k + 1);
+            if (b & 1)
+            {
+                res = Mul(res, aa);
+                res.resize(k + 1);
+            }
+            aa = Mul(aa, aa);
+            b >>= 1;
+        }
+        return res;
+    }
+
     // 多项式求逆, getinv(poly a , n)返回a^(-1) mod x^n
     void Getinv(int *a, int *b, int n)
     {
