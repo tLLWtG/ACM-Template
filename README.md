@@ -7,72 +7,37 @@
 
 # Full List
 
-### A
-
 * Augmenting_Path_Algorithm
-
-### B
 
 * Bellman_Ford, Big_Integer, Binary_Indexed_Tree, Binary_Search
 
-### C
-
 * Calculation_2D, Calculation_3D, Combination
-
-### D
 
 * Data, Difference, Dijkstra, DP_Knapsack, DP_Range, DP_Tree, DSU
 
-### E
-
 * Euler's_Totient_Function, Exgcd
-
-### F
 
 * Fast_IO, Floyd, Functions
 
-### G
-
 * Gauss_Jordan_Elimination, GCD, Gospers_Hack, Graph
-
-### H
 
 * Hash, Heap, Hungarian_Algorithm
 
-### J
-
 * Johnson
-
-### K
 
 * KMP, Kosaraju, Kruskal
 
-### L
-
 * LCA, LCM
-
-### M
 
 * Matching, ModInt, Modular_Multiplicative_Inverse, Modulo_For_Rational_Numbers, Monotone_Queue, Monotone_Stack
 
-### N
-
 * n_D_Prefix_Sum
-
-
-### P
 
 * Pollard_Rho, Poly, Prim, Prime
 
-### Q
-
 * Quick_Pow
 
-### S
-
 * Search, Segment_Tree, Snippets_C, Snippets_Cpp, Snippets_Cpp_win, Snippets_others, Sort, Sparse_Table, Splay
-
-### T
 
 * Tarjan, Ternary_Search, Topology_Sort, Tricks, Trie
 
