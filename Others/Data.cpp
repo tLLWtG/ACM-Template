@@ -24,12 +24,25 @@ using pii = pair<int, int>;
 /*-------------------------------------------*/
 
 // millisecond
+// you should include <sys/time.h> before use it
 
 int getSeed()
 {
     struct timeval tv;
     gettimeofday(&tv, NULL);
     return tv.tv_sec * 1000 + tv.tv_usec / 1000;
+}
+
+// better randint
+
+int randint(int l, int r = 0)
+{
+    // static mt19937 eng(time(0));
+    static mt19937 eng(getSeed());
+    if (l > r)
+        swap(l, r);
+    uniform_int_distribution<int> dis(l, r);
+    return dis(eng);
 }
 
 // Example
@@ -40,13 +53,12 @@ int main()
     ios::sync_with_stdio(0);
     cin.tie(0);
     // cout << setprecision(15) << fixed;
-    srand(getSeed());
 
-    int N = (rand() % 10) + 1;
+    int N = randint(1, 10);
     cout << N << endl;
     for (int i = 1; i <= N; ++i)
     {
-        int x = rand() % N + 1;
+        int x = randint(1, 10);
         cout << x << ' ';
     }
     cout << endl;

@@ -7,67 +7,88 @@
 
 # Full List
 
-* Bellman_Ford
-* Big_Integer
-* Binary_Indexed_Tree
-* Binary_Search
-* Calculation
-* Combination
-* Data
-* Difference
-* Dijkstra
-* DP_Knapsack
-* DP_Range
-* DP_Tree
-* DSU
-* Exgcd
-* Fast_IO
-* Floyd
-* Functions
-* GCD
-* Gospers_Hack
-* Graph
-* Hash
-* Heap
-* Johnson
-* KMP
-* Kosaraju
-* Kruskal
-* LCA
-* LCM
-* Snippets_C
-* Snippets_Cpp
-* Snippets_Cpp_win
-* Snippets_others
-* Matching
-* ModInt
-* Modular_Multiplicative_Inverse
-* Modulo_For_Rational_Numbers
-* Monotone_Queue
-* Monotone_Stack
-* n_D_Prefix_Sum
-* Poly
-* Prim
-* Prime
-* Quick_Pow
-* Search
-* Segment_Tree
-* Sort
-* Sparse_Table
-* Splay
-* Tarjan
-* Ternary_Search
-* Topology_Sort
-* Tricks
-* Trie
+### A
 
-> Total: 53 templates
+* Augmenting_Path_Algorithm
+
+### B
+
+* Bellman_Ford, Big_Integer, Binary_Indexed_Tree, Binary_Search
+
+### C
+
+* Calculation_2D, Calculation_3D, Combination
+
+### D
+
+* Data, Difference, Dijkstra, DP_Knapsack, DP_Range, DP_Tree, DSU
+
+### E
+
+* Euler's_Totient_Function, Exgcd
+
+### F
+
+* Fast_IO, Floyd, Functions
+
+### G
+
+* Gauss_Jordan_Elimination, GCD, Gospers_Hack, Graph
+
+### H
+
+* Hash, Heap, Hungarian_Algorithm
+
+### J
+
+* Johnson
+
+### K
+
+* KMP, Kosaraju, Kruskal
+
+### L
+
+* LCA, LCM
+
+### M
+
+* Matching, ModInt, Modular_Multiplicative_Inverse, Modulo_For_Rational_Numbers, Monotone_Queue, Monotone_Stack
+
+### N
+
+* n_D_Prefix_Sum
+
+
+### P
+
+* Pollard_Rho, Poly, Prim, Prime
+
+### Q
+
+* Quick_Pow
+
+### S
+
+* Search, Segment_Tree, Snippets_C, Snippets_Cpp, Snippets_Cpp_win, Snippets_others, Sort, Sparse_Table, Splay
+
+### T
+
+* Tarjan, Ternary_Search, Topology_Sort, Tricks, Trie
+
+> Total: 59 templates
 > 
 > and more to be added......
 
 
 
 # UPD History
+
+### 2023.08.25
+
+* Augmenting_Path_Algorithm, Hungarian_Algorithm, Euler's_Totient_Function, Gauss_Jordan_Elimination, Pollard_Rho
+
+* Calculation -> Calculation_2D, Calculation_3D
 
 ### 2023.08.11
 

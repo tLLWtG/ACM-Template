@@ -22,51 +22,9 @@ using pii = pair<int, int>;
 
 /*-------------------------------------------*/
 
-// 1. the Sieve of Eratosthenes
-
-#define MAXN 100005
-
-vector<bool> nop(MAXN, false);
-
-void init1()
-{
-    nop[0] = true;
-    nop[1] = true;
-    for (int i = 2; i * i < MAXN; ++i)
-    {
-        if (!nop[i])
-        {
-            for (int j = i * i; j < MAXN; j += i)
-                nop[j] = true;
-        }
-    }
-}
-
-// 2. Euler sieve
-
-bool isnp[MAXN];
-vector<int> primes;
-void init2()
-{
-    isnp[0] = isnp[1] = 1;
-    for (int i = 2; i < MAXN; i++)
-    {
-        if (!isnp[i])
-            primes.push_back(i);
-        for (int p : primes)
-        {
-            if (p * i > MAXN)
-                break;
-            isnp[p * i] = 1;
-            if (i % p == 0)
-                break;
-        }
-    }
-}
-
-// 3. Deterministic Miller–Rabin primality test
-
 // for 1 ~ (1 << 64)
+
+// max fac
 
 namespace millerRabin
 {
@@ -116,5 +74,59 @@ namespace millerRabin
                 return 0;
         }
         return 1;
+    }
+}
+
+namespace pollardRho
+{
+    ll max_factor;
+    ll Pollard_Rho(ll x)
+    {
+        ll s = 0, t = 0;
+        ll c = (ll)rand() % (x - 1) + 1;
+        int step = 0, goal = 1;
+        ll val = 1;
+        for (goal = 1;; goal *= 2, s = t, val = 1)
+        {
+            for (step = 1; step <= goal; ++step)
+            {
+                t = ((__int128)t * t + c) % x;
+                val = (__int128)val * abs(t - s) % x;
+                if ((step % 127) == 0)
+                {
+                    ll d = gcd(val, x);
+                    if (d > 1)
+                        return d;
+                }
+            }
+            ll d = gcd(val, x);
+            if (d > 1)
+                return d;
+        }
+    }
+
+    void func(ll x)
+    {
+        if (x <= max_factor || x < 2)
+            return;
+        if (millerRabin::isPrime(x))
+        {
+            max_factor = max(max_factor, x);
+            return;
+        }
+        ll p = x;
+        while (p >= x)
+            p = Pollard_Rho(x);
+        while ((x % p) == 0)
+            x /= p;
+        func(x), func(p);
+    }
+
+    ll fac(ll x)
+    {
+        srand((unsigned)time(0));
+        max_factor = 0;
+        func(x);
+        return max_factor;
     }
 }

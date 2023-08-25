@@ -102,3 +102,13 @@ void dp6(int n)
 // int w = W;
 // loop from last to first
 // if choose, w -= w[i]; and record  that
+
+// 可行性 01 背包问题可以用 bitset 优化
+// bitset<MAXN> dp;
+// dp[0] = 1;
+// dp |= dp << v[i];
+// if (dp.test[v[i]]) ...
+// example: v[1] = 2, v[2] = 3
+// 00000001
+// 00000101
+// 00101101

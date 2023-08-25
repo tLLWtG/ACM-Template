@@ -74,7 +74,7 @@ bool cmp(const string &s, const string &t)
 const int N = 1e5 + 5, P = 133;
 unsigned long long h[N], p[N];
 
-unsigned long long query(int l,int r)
+unsigned long long query(int l, int r)
 {
     return h[r] - h[l - 1] * p[r - l + 1];
 }
@@ -85,9 +85,12 @@ void prepro(string &str)
     p[0] = 1;
     h[0] = 0;
     int sz = str.size();
-    for(int i = 0; i < sz; i++)
+    for (int i = 0; i < sz; i++)
     {
-        p[i + 1] = p[i] * P;            
+        p[i + 1] = p[i] * P;
         h[i + 1] = h[i] * P + str[i];
     }
 }
+
+// double hash
+// exist when the result of %a and %b is equal
