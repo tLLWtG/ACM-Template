@@ -2,8 +2,8 @@
 
 **This is tllwtg's ACM Templates.**
 
-| [Algorithm](https://github.com/tLLWtG/ACM-Template/tree/main/Algorithm) | [Construction](https://github.com/tLLWtG/ACM-Template/tree/main/Construction) | [Graph](https://github.com/tLLWtG/ACM-Template/tree/main/Graph) | [Math](https://github.com/tLLWtG/ACM-Template/tree/main/Math) | [Others](https://github.com/tLLWtG/ACM-Template/tree/main/Others) | [Snippets](https://github.com/tLLWtG/ACM-Template/tree/main/Snippets) |
-| :---------------------------------------------------------------------: | :---------------------------------------------------------------------------: | :-------------------------------------------------------------: | :-----------------------------------------------------------: | :---------------------------------------------------------------: | :-------------------------------------------------------------------: |
+| [Base-Algorithm](https://github.com/tLLWtG/ACM-Template/tree/main/Base-Algorithm) | [DP](https://github.com/tLLWtG/ACM-Template/tree/main/DP) | [DS](https://github.com/tLLWtG/ACM-Template/tree/main/DS) | [Game](https://github.com/tLLWtG/ACM-Template/tree/main/Game) | [Graph](https://github.com/tLLWtG/ACM-Template/tree/main/Graph) | [Math](https://github.com/tLLWtG/ACM-Template/tree/main/Math) | [Others](https://github.com/tLLWtG/ACM-Template/tree/main/Others) | [Snippets](https://github.com/tLLWtG/ACM-Template/tree/main/Snippets) | [String](https://github.com/tLLWtG/ACM-Template/tree/main/String) |
+| :-------------------------------------------------------------------------------: | :-------------------------------------------------------: | :-------------------------------------------------------: | :-----------------------------------------------------------: | :-------------------------------------------------------------: | :-----------------------------------------------------------: | :---------------------------------------------------------------: | :-------------------------------------------------------------------: | :---------------------------------------------------------------: |
 
 # Full List
 
