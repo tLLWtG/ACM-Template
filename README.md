@@ -55,6 +55,8 @@
 
 * make some templates more Object Oriented
 
+* use new folder category
+
 ### 2023.08.25
 
 * Augmenting_Path_Algorithm, Hungarian_Algorithm, Euler's_Totient_Function, Gauss_Jordan_Elimination, Pollard_Rho
