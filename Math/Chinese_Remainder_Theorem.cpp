@@ -22,30 +22,29 @@ using pii = pair<int, int>;
 
 /*-------------------------------------------*/
 
-class ST
+ll inv(ll a, ll b)
 {
-private:
-    int n, MAXN;
-    vector<vector<int>> stable;
+    ll x = 1, y = 0, mod = b;
+    while (b)
+    {
+        ll t = a / b;
+        a -= t * b;
+        x -= t * y;
+        swap(a, b);
+        swap(x, y);
+    }
+    return (x % mod + mod) % mod;
+}
 
-public:
-    vector<int> arr;
-    ST(int _n) : n(_n), MAXN(_n + 5)
+ll CRT(int k, const vector<ll> &arr, const vector<ll> &nrr)
+{
+    ll n = 1, ans = 0;
+    for (int i = 0; i < k; ++i)
+        n *= nrr[i];
+    for (int i = 0; i < k; ++i)
     {
-        arr.resize(MAXN);
-        stable = vector<vector<int>>(__lg(MAXN) + 1, vector<int>(MAXN));
+        ll m = n / nrr[i];
+        ans = (ans + arr[i] * m % n * inv(m, nrr[i])) % n;
     }
-    void init()
-    {
-        for (int i = 1; i <= n; ++i)
-            stable[0][i] = arr[i];
-        for (int i = 1; i <= __lg(MAXN); ++i)
-            for (int j = 1; j + (1 << i) - 1 <= n; ++j)
-                stable[i][j] = max(stable[i - 1][j], stable[i - 1][j + (1 << (i - 1))]);
-    }
-    int query(int l, int r)
-    {
-        int s = __lg(r - l + 1);
-        return max(stable[s][l], stable[s][r - (1 << s) + 1]);
-    }
-};
+    return (ans % n + n) % n;
+}

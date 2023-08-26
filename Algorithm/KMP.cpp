@@ -22,33 +22,38 @@ using pii = pair<int, int>;
 
 /*-------------------------------------------*/
 
-#define MAXN 100005
-
-int pmt[MAXN];
-
-void get_pmt(const string &s)
+class KMP
 {
-    for (int i = 1, j = 0; i < s.length(); ++i)
+private:
+    vector<int> pmt;
+    string p;
+
+public:
+    KMP(const string &_p) : p(_p)
     {
-        while (j && s[i] != s[j])
-            j = pmt[j - 1];
-        if (s[i] == s[j])
-            j++;
-        pmt[i] = j;
-    }
-}
-void kmp(const string &s, const string &p)
-{
-    for (int i = 0, j = 0; i < s.length(); ++i)
-    {
-        while (j && s[i] != p[j])
-            j = pmt[j - 1];
-        if (s[i] == p[j])
-            j++;
-        if (j == p.length())
+        pmt.resize(p.length() + 5, 0);
+        for (int i = 1, j = 0; i < p.length(); ++i)
         {
-            cout << i - j + 2 << endl;
-            j = pmt[j - 1];
+            while (j && p[i] != p[j])
+                j = pmt[j - 1];
+            if (p[i] == p[j])
+                j++;
+            pmt[i] = j;
         }
     }
-}
+    void find(const string &s)
+    {
+        for (int i = 0, j = 0; i < s.length(); ++i)
+        {
+            while (j && s[i] != p[j])
+                j = pmt[j - 1];
+            if (s[i] == p[j])
+                j++;
+            if (j == p.length())
+            {
+                cout << i - j + 2 << endl;
+                j = pmt[j - 1];
+            }
+        }
+    }
+};

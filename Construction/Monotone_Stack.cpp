@@ -23,8 +23,9 @@ using pii = pair<int, int>;
 /*-------------------------------------------*/
 
 #define MAXN 100005
+
 int arr[MAXN];
-vector<int> ans(MAXN, 0);
+int ans[MAXN];
 stack<int> st;
 
 void func()

@@ -24,8 +24,12 @@ using pii = pair<int, int>;
 
 class DSU
 {
+private:
+    int n;
+    vector<int> fa, sz;
+
 public:
-    DSU(int _n): n(_n)
+    DSU(int _n) : n(_n)
     {
         fa.resize(n + 1);
         sz.resize(n + 1);
@@ -35,7 +39,6 @@ public:
             sz[i] = 1;
         }
     }
-
     int find(int x)
     {
         if (fa[x] == x)
@@ -46,7 +49,6 @@ public:
             return fa[x];
         }
     }
-
     void merge(int x, int y)
     {
         if (x == y)
@@ -63,12 +65,8 @@ public:
             fa[yfa] = xfa;
         }
     }
-
     int get_size(int x)
     {
         return sz[find(x)];
     }
-private:
-    int n;
-    vector<int> fa, sz;
 };

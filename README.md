@@ -11,7 +11,7 @@
 
 * Bellman_Ford, Big_Integer, Binary_Indexed_Tree, Binary_Search
 
-* Calculation_2D, Calculation_3D, Combination
+* Calculation_2D, Calculation_3D, Chinese_Remainder_Theorem, Combination
 
 * Data, Difference, Dijkstra, DP_Knapsack, DP_Range, DP_Tree, DSU
 
@@ -27,7 +27,7 @@
 
 * KMP, Kosaraju, Kruskal
 
-* LCA, LCM
+* LCA, LCM, Lucas
 
 * Matching, ModInt, Modular_Multiplicative_Inverse, Modulo_For_Rational_Numbers, Monotone_Queue, Monotone_Stack
 
@@ -41,13 +41,19 @@
 
 * Tarjan, Ternary_Search, Topology_Sort, Tricks, Trie
 
-> Total: 59 templates
+> Total: 61 templates
 > 
 > and more to be added......
 
 
 
 # UPD History
+
+### 2023.08.26
+
+* Chinese_Remainder_Theorem, Lucas
+
+* make some templates more Object Oriented
 
 ### 2023.08.25
 

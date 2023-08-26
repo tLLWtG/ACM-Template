@@ -22,22 +22,6 @@ using pii = pair<int, int>;
 
 /*-------------------------------------------*/
 
-// 1.
-
-ll comb(ll n, ll k)
-{
-    ll res = 1;
-    for (ll i = 1; i <= k; ++i)
-    {
-        res *= n - i + 1;
-        res /= i;
-        // use inverse if you need modulo
-    }
-    return res;
-}
-
-// 2. O(n)
-
 namespace comb
 {
     int n, p;
@@ -61,19 +45,12 @@ namespace comb
     }
     int C(int x, int y) { return (ll)fac[x] * finv[y] % p * finv[x - y] % p; }
 }
-// (x)
-// (y)
 
-// 3. Yanghui triangle
-
-int c[2005][2005];
-
-void build(int p)
+ll Lucas(ll n, ll m, ll p)
 {
-    c[1][1] = 1;
-    for (int i = 0; i <= 2000; i++)
-        c[i][0] = 1;
-    for (int i = 2; i <= 2000; i++)
-        for (int j = 1; j <= i; j++)
-            c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % p;
+    if (m == 0)
+        return 1;
+    if (n % p < m % p)
+        return 0;
+    return (comb::C(n % p, m % p) * Lucas(n / p, m / p, p)) % p;
 }

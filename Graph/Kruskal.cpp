@@ -22,55 +22,87 @@ using pii = pair<int, int>;
 
 /*-------------------------------------------*/
 
-#define MAXN 100005
-
-struct edge
+class DSU
 {
-    int u, v, w;
-};
+private:
+    int n;
+    vector<int> fa, sz;
 
-bool cmp(edge a, edge b)
-{
-    return a.w < b.w;
-}
-
-vector<edge> e(MAXN);
-
-int fa[MAXN];
-
-void init(int n)
-{
-    for (int i = 1; i <= n; ++i)
-        fa[i] = i;
-}
-
-int find(int x)
-{
-    if (fa[x] == x)
-        return x;
-    int xfa = find(fa[x]);
-    return fa[x] = xfa;
-}
-
-void merge(int x, int y)
-{
-    int xfa = find(x);
-    int yfa = find(y);
-    fa[xfa] = yfa;
-}
-
-void Kruskal(int n, int m)
-{
-    init(n);
-    sort(e.begin() + 1, e.begin() + 1 + m, cmp);
-    for (int i = 1; i <= m; ++i)
+public:
+    DSU(int _n) : n(_n)
     {
-        if (find(e[i].u) == find(e[i].v))
-            continue;
-        else
+        fa.resize(n + 1);
+        sz.resize(n + 1);
+        for (int i = 1; i <= n; ++i)
         {
-            merge(e[i].u, e[i].v);
-            cout << e[i].u << " " << e[i].v << " " << e[i].w << endl;
+            fa[i] = i;
+            sz[i] = 1;
         }
     }
-}
+    int find(int x)
+    {
+        if (fa[x] == x)
+            return x;
+        else
+        {
+            fa[x] = find(fa[x]);
+            return fa[x];
+        }
+    }
+    void merge(int x, int y)
+    {
+        if (x == y)
+            return;
+        int xfa = find(x), yfa = find(y);
+        if (sz[xfa] <= sz[yfa])
+        {
+            sz[yfa] += sz[xfa];
+            fa[xfa] = yfa;
+        }
+        else
+        {
+            sz[xfa] += sz[yfa];
+            fa[yfa] = xfa;
+        }
+    }
+    int get_size(int x)
+    {
+        return sz[find(x)];
+    }
+};
+
+class Kruskal
+{
+private:
+    int n, m;
+    DSU dsu;
+
+public:
+    struct edge
+    {
+        int u, v, w;
+    };
+    static bool cmp(edge a, edge b)
+    {
+        return a.w < b.w;
+    }
+    vector<edge> e;
+    Kruskal(int _n, int _m) : n(_n), m(_m), dsu(_n)
+    {
+        e.resize(m + 5);
+    }
+    void solve()
+    {
+        sort(e.begin() + 1, e.begin() + 1 + m, cmp);
+        for (int i = 1; i <= m; ++i)
+        {
+            if (dsu.find(e[i].u) == dsu.find(e[i].v))
+                continue;
+            else
+            {
+                dsu.merge(e[i].u, e[i].v);
+                cout << e[i].u << " " << e[i].v << " " << e[i].w << endl;
+            }
+        }
+    }
+};
