@@ -22,35 +22,6 @@ using pii = pair<int, int>;
 
 /*-------------------------------------------*/
 
-// for unordered_X, e.g. unordered_map<int, int, my_hash>
-// link: https://codeforces.com/blog/entry/62393
-
-struct my_hash
-{
-    static uint64_t splitmix64(uint64_t x)
-    {
-        x += 0x9e3779b97f4a7c15;
-        x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;
-        x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
-        return x ^ (x >> 31);
-    }
-
-    size_t operator()(uint64_t x) const
-    {
-        static const uint64_t FIXED_RANDOM =
-            chrono::steady_clock::now().time_since_epoch().count();
-        return splitmix64(x + FIXED_RANDOM);
-    }
-
-    size_t operator()(pair<uint64_t, uint64_t> x) const
-    {
-        static const uint64_t FIXED_RANDOM =
-            chrono::steady_clock::now().time_since_epoch().count();
-        return splitmix64(x.first + FIXED_RANDOM) ^
-               (splitmix64(x.second + FIXED_RANDOM) >> 1);
-    }
-};
-
 // string hash
 
 const int M = 1e9 + 7;
@@ -64,9 +35,20 @@ int get_hash(const string &s)
     return res;
 }
 
-bool cmp(const string &s, const string &t)
+// double hash
+
+const int mod1 = 19260817;
+const int mod2 = 1e9 + 7;
+
+pii get_hash(string &s)
 {
-    return get_hash(s) == get_hash(t);
+    ll r1 = 0, r2 = 0;
+    for (int i = 0; i < s.size(); ++i)
+    {
+        r1 = (r1 * 131 + s[i]) % mod1;
+        r2 = (r2 * 233 + s[i]) % mod2;
+    }
+    return {r1, r2};
 }
 
 // substring hash(with prefix)
@@ -91,6 +73,3 @@ void prepro(string &str)
         h[i + 1] = h[i] * P + str[i];
     }
 }
-
-// double hash
-// exist when the result of %a and %b is equal

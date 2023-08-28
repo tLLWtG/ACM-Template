@@ -7,13 +7,13 @@
 
 # Full List
 
-* Augmenting_Path_Algorithm
+* Aho-Corasick_Automaton, Augmenting_Path_Algorithm
 
 * Bellman_Ford, Big_Integer, Binary_Indexed_Tree, Binary_Search
 
 * Calculation_2D, Calculation_3D, Chinese_Remainder_Theorem, Combination
 
-* Data, Difference, Dijkstra, DP_Knapsack, DP_Range, DP_Tree, DSU
+* Data, Difference, Dijkstra, Dominator_Tree, DP_Knapsack, DP_Range, DP_Tree, DSU
 
 * Euler's_Totient_Function, Exgcd
 
@@ -25,7 +25,7 @@
 
 * Johnson
 
-* KMP, Kosaraju, Kruskal
+* k-D_Tree, KMP, Kosaraju, Kruskal
 
 * LCA, LCM, Lucas
 
@@ -37,17 +37,21 @@
 
 * Quick_Pow
 
-* Search, Segment_Tree, Snippets_C, Snippets_Cpp, Snippets_Cpp_win, Snippets_others, Sort, Sparse_Table, Splay
+* Search, Segment_Tree, Segment_Tree_Beats, Snippets_C, Snippets_Cpp, Snippets_Cpp_win, Snippets_others, Sort, Sparse_Table, Splay
 
 * Tarjan, Ternary_Search, Topology_Sort, Tricks, Trie
 
-> Total: 61 templates
+> Total: 65 templates
 > 
 > and more to be added......
 
 
 
 # UPD History
+
+### 2023.08.28
+
+* Dominator_Tree, k-D_Tree, Segment_Tree_Beats, Aho-Corasick_Automaton
 
 ### 2023.08.26
 

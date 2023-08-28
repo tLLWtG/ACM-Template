@@ -240,7 +240,7 @@ namespace FFT
         delete[] c;
         return ans;
     }
-};
+}
 
 // example
 
