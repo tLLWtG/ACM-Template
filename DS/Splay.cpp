@@ -22,202 +22,183 @@ using pii = pair<int, int>;
 
 /*-------------------------------------------*/
 
-const int N = 100005;
-
-class Splay
+template <typename T>
+class Balanced_Binary_Tree
 {
 private:
-    int rt, tot, fa[N], ch[N][2], val[N], cnt[N], sz[N];
-
-    void maintain(int x) { sz[x] = sz[ch[x][0]] + sz[ch[x][1]] + cnt[x]; }
-
-    bool get(int x) { return x == ch[fa[x]][1]; }
-
-    void clear(int x)
+    // N + M
+    static const int N = 200005;
+    struct Point
     {
-        ch[x][0] = ch[x][1] = fa[x] = val[x] = sz[x] = cnt[x] = 0;
+        T value;
+        int count;
+        int size;
+        int son[2], fa;
+        Point() { size = count = 0, fa = son[1] = son[0] = 0; }
+        Point(T value)
+        {
+            this->value = value,
+            size = count = 1, fa = son[1] = son[0] = 0;
+        }
+    } tree[N];
+    int length, size, root;
+    bool get_id(int x)
+    {
+        return tree[tree[x].fa].son[1] == x;
     }
-
+    void upto(int x)
+    {
+        tree[x].size =
+            tree[tree[x].son[0]].size + tree[tree[x].son[1]].size + tree[x].count;
+    }
+    void connect(int x, int y, bool id)
+    {
+        tree[x].fa = y, tree[y].son[id] = x;
+    }
     void rotate(int x)
     {
-        int y = fa[x], z = fa[y], chk = get(x);
-        ch[y][chk] = ch[x][chk ^ 1];
-        if (ch[x][chk ^ 1])
-            fa[ch[x][chk ^ 1]] = y;
-        ch[x][chk ^ 1] = y;
-        fa[y] = x;
-        fa[x] = z;
-        if (z)
-            ch[z][y == ch[z][1]] = x;
-        maintain(y);
-        maintain(x);
+        int m(tree[x].fa), g(tree[m].fa);
+        bool id(get_id(x)), mid(get_id(m));
+        connect(tree[x].son[!id], m, id), upto(m),
+            connect(m, x, !id), upto(x), connect(x, g, mid);
     }
-
-    void splay(int x)
+    void splay(int x, int root)
     {
-        for (int f = fa[x]; f = fa[x], f; rotate(x))
-            if (fa[f])
-                rotate(get(x) == get(f) ? f : x);
-        rt = x;
+        root = tree[root].fa;
+        while (tree[x].fa not_eq root)
+            if (tree[tree[x].fa].fa == root)
+                rotate(x);
+            else if (get_id(x) == get_id(tree[x].fa))
+                rotate(tree[x].fa), rotate(x);
+            else
+                rotate(x), rotate(x);
     }
-
-    int lower()
+    void Splay(int x)
     {
-        int cur = ch[rt][0];
-        if (!cur)
-            return cur;
-        while (ch[cur][1])
-            cur = ch[cur][1];
-        splay(cur);
-        return cur;
-    }
-
-    int upper()
-    {
-        int cur = ch[rt][1];
-        if (!cur)
-            return cur;
-        while (ch[cur][0])
-            cur = ch[cur][0];
-        splay(cur);
-        return cur;
+        splay(x, root), root = x;
     }
 
 public:
-    void insert(int k)
+    Balanced_Binary_Tree() { size = length = 0; }
+    void insert(T x)
     {
-        if (!rt)
+        if (not size++)
         {
-            val[++tot] = k;
-            cnt[tot]++;
-            rt = tot;
-            maintain(rt);
+            tree[root = ++length] = Point(x), connect(root, 0, 0);
             return;
         }
-        int cur = rt, f = 0;
-        while (1)
+        for (int i(root); ++tree[i].size, true;)
         {
-            if (val[cur] == k)
+            if (tree[i].value == x)
             {
-                cnt[cur]++;
-                maintain(cur);
-                maintain(f);
-                splay(cur);
-                break;
-            }
-            f = cur;
-            cur = ch[cur][val[cur] < k];
-            if (!cur)
-            {
-                val[++tot] = k;
-                cnt[tot]++;
-                fa[tot] = f;
-                ch[f][val[f] < k] = tot;
-                maintain(tot);
-                maintain(f);
-                splay(tot);
-                break;
-            }
-        }
-    }
-
-    int rank(int k)
-    {
-        int res = 0, cur = rt;
-        while (1)
-        {
-            if (k < val[cur])
-            {
-                cur = ch[cur][0];
+                ++tree[i].count, Splay(i);
+                return;
             }
             else
             {
-                res += sz[ch[cur][0]];
-                if (k == val[cur])
+                bool id(tree[i].value < x);
+                if (not tree[i].son[id])
                 {
-                    splay(cur);
-                    return res + 1;
+                    tree[++length] = Point(x), connect(length, i, id),
+                    Splay(length);
+                    return;
                 }
-                res += cnt[cur];
-                cur = ch[cur][1];
+                else
+                    i = tree[i].son[id];
             }
         }
     }
-
-    int kth(int k)
+    void erase(T x)
     {
-        int cur = rt;
-        while (1)
-        {
-            if (ch[cur][0] && k <= sz[ch[cur][0]])
+        --size;
+        for (
+            int i(root);
+            tree[i].size--;
+            i = tree[i].son[x > tree[i].value])
+            if (tree[i].value == x)
             {
-                cur = ch[cur][0];
+                if (--tree[i].count)
+                {
+                    Splay(i);
+                    return;
+                }
+                Splay(i);
+                if (not tree[i].son[0])
+                {
+                    connect(root = tree[i].son[1], 0, 0);
+                    return;
+                }
+                if (not tree[i].son[1])
+                {
+                    connect(root = tree[i].son[0], 0, 0);
+                    return;
+                }
+                int j(tree[i].son[0]);
+                while (tree[j].son[1])
+                    j = tree[j].son[1];
+                splay(j, tree[i].son[0]);
+                connect(tree[i].son[1], tree[i].son[0], 1),
+                    upto(tree[i].son[0]),
+                    connect(root = tree[i].son[0], 0, 0);
+                return;
             }
+    }
+    int rank(T x)
+    {
+        int r(1);
+        for (int i(root); i;)
+            if (tree[i].value == x)
+            {
+                Splay(i);
+                return tree[tree[i].son[0]].size + 1;
+            }
+            else if (tree[i].value < x)
+                r += tree[tree[i].son[0]].size + tree[i].count,
+                    i = tree[i].son[1];
             else
+                i = tree[i].son[0];
+        return r;
+    }
+    T kth(int x)
+    {
+        int r(1);
+        for (int i(root); true;)
+        {
+            if (
+                r + tree[tree[i].son[0]].size <= x and x < r + tree[tree[i].son[0]].size + tree[i].count)
             {
-                k -= cnt[cur] + sz[ch[cur][0]];
-                if (k <= 0)
-                {
-                    splay(cur);
-                    return val[cur];
-                }
-                cur = ch[cur][1];
+                Splay(i);
+                return tree[i].value;
             }
+            else if (x < r + tree[tree[i].son[0]].size)
+                i = tree[i].son[0];
+            else
+                r += tree[tree[i].son[0]].size + tree[i].count,
+                    i = tree[i].son[1];
         }
     }
-
-    int lower(int x)
+    T lower(T x)
     {
-        insert(x);
-        int res = val[lower()];
-        erase(x);
-        return res;
+        T r;
+        int li;
+        for (int i(root); i;)
+            if (tree[i].value >= x)
+                li = i, i = tree[i].son[0];
+            else
+                r = tree[li = i].value, i = tree[i].son[1];
+        Splay(li);
+        return r;
     }
-
-    int upper(int x)
+    T upper(T x)
     {
-        insert(x);
-        int res = val[upper()];
-        erase(x);
-        return res;
-    }
-
-    void erase(int k)
-    {
-        rank(k);
-        if (cnt[rt] > 1)
-        {
-            cnt[rt]--;
-            maintain(rt);
-            return;
-        }
-        if (!ch[rt][0] && !ch[rt][1])
-        {
-            clear(rt);
-            rt = 0;
-            return;
-        }
-        if (!ch[rt][0])
-        {
-            int cur = rt;
-            rt = ch[rt][1];
-            fa[rt] = 0;
-            clear(cur);
-            return;
-        }
-        if (!ch[rt][1])
-        {
-            int cur = rt;
-            rt = ch[rt][0];
-            fa[rt] = 0;
-            clear(cur);
-            return;
-        }
-        int cur = rt;
-        int x = lower();
-        fa[ch[cur][1]] = x;
-        ch[x][1] = ch[cur][1];
-        clear(cur);
-        maintain(rt);
+        T r;
+        int li;
+        for (int i(root); i;)
+            if (tree[i].value <= x)
+                li = i, i = tree[i].son[1];
+            else
+                r = tree[li = i].value, i = tree[i].son[0];
+        Splay(li);
+        return r;
     }
 };

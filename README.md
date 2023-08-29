@@ -29,25 +29,29 @@
 
 * LCA, LCM, Lucas
 
-* Matching, ModInt, Modular_Multiplicative_Inverse, Modulo_For_Rational_Numbers, Monotone_Queue, Monotone_Stack
+* Matching, Mo's_Algorithm, ModInt, Modular_Multiplicative_Inverse, Modulo_For_Rational_Numbers, Monotone_Queue, Monotone_Stack
 
 * n_D_Prefix_Sum
 
-* Pollard_Rho, Poly, Prim, Prime
+* Persistent_DS, Pollard_Rho, Poly, Prim, Prime
 
 * Quick_Pow
 
-* Search, Segment_Tree, Segment_Tree_Beats, Snippets_C, Snippets_Cpp, Snippets_Cpp_win, Snippets_others, Sort, Sparse_Table, Splay
+* Search, Segment_Tree, Segment_Tree_Beats, Segment_Tree_EX, Snippets_C, Snippets_Cpp, Snippets_Cpp_win, Snippets_others, Sort, Sparse_Table, Splay
 
 * Tarjan, Ternary_Search, Topology_Sort, Tricks, Trie
 
-> Total: 65 templates
+> Total: 68 templates
 > 
 > and more to be added......
 
 
 
 # UPD History
+
+### 2023.08.29
+
+* Persistent_DS, Segment_Tree_EX, Mo's_Algorithm
 
 ### 2023.08.28
 
