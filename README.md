@@ -7,15 +7,15 @@
 
 # Full List
 
-* Aho-Corasick_Automaton, Augmenting_Path_Algorithm
+* Aho-Corasick_Automaton, Anti-SG, Augmenting_Path_Algorithm
 
 * Bellman_Ford, Big_Integer, Binary_Indexed_Tree, Binary_Search
 
-* Calculation_2D, Calculation_3D, Chinese_Remainder_Theorem, Combination
+* Calculation_2D, Calculation_3D, Chinese_Remainder_Theorem, Classical_Game, Combination
 
 * Data, Difference, Dijkstra, Dominator_Tree, DP_Knapsack, DP_Range, DP_Tree, DSU
 
-* Euler's_Totient_Function, Exgcd
+* Euler's_Totient_Function, Every-SG, Exgcd
 
 * Fast_IO, Floyd, Functions
 
@@ -29,7 +29,7 @@
 
 * LCA, LCM, Lucas
 
-* Matching, Mo's_Algorithm, ModInt, Modular_Multiplicative_Inverse, Modulo_For_Rational_Numbers, Monotone_Queue, Monotone_Stack
+* Matching, Mo's_Algorithm, ModInt, Modular_Multiplicative_Inverse, Modulo_For_Rational_Numbers, Monotone_Queue, Monotone_Stack, Multi-SG
 
 * n_D_Prefix_Sum
 
@@ -37,17 +37,21 @@
 
 * Quick_Pow
 
-* Search, Segment_Tree, Segment_Tree_Beats, Segment_Tree_EX, Snippets_C, Snippets_Cpp, Snippets_Cpp_win, Snippets_others, Sort, Sparse_Table, Splay
+* Search, Segment_Tree, Segment_Tree_Beats, Segment_Tree_EX, SG, Snippets_C, Snippets_Cpp, Snippets_Cpp_win, Snippets_others, Sort, Sparse_Table, Splay
 
 * Tarjan, Ternary_Search, Topology_Sort, Tricks, Trie
 
-> Total: 68 templates
+> Total: 73 templates
 > 
 > and more to be added......
 
 
 
 # UPD History
+
+### 2023.08.30
+
+* Anti-SG, Classical_Game, Every-SG, Multi-SG, SG
 
 ### 2023.08.29
 
