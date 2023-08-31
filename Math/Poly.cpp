@@ -22,18 +22,56 @@ using pii = pair<int, int>;
 
 /*-------------------------------------------*/
 
+// 求原根
+
+namespace Root
+{
+    ll pow(const ll x, const ll n, const ll p)
+    {
+        ll ans = 1;
+        for (ll num = x, tmp = n; tmp; tmp >>= 1, num = num * num % p)
+            if (tmp & 1)
+                ans = ans * num % p;
+        return ans;
+    }
+    ll root(const ll p)
+    {
+        for (int i = 2; i <= p; i++)
+        {
+            int x = p - 1;
+            bool flag = false;
+            for (int k = 2; k * k <= p - 1; k++)
+                if (x % k == 0)
+                {
+                    if (pow(i, (p - 1) / k, p) == 1)
+                    {
+                        flag = true;
+                        break;
+                    }
+                    while (x % k == 0)
+                        x /= k;
+                }
+            if (!flag && (x == 1 || pow(i, (p - 1) / x, p) != 1))
+            {
+                return i;
+            }
+        }
+        throw;
+    }
+}
+
 typedef long long ll;
 typedef unsigned long long ull;
 typedef vector<int> poly;
 
 const int FFTN = 1 << 22, mod = 998244353; // FFTN最大值(1 << 23), mod-1 = 119 * (1 << 23)
 
-int qpow(int a, int t)
+int qpow(int a, int t, int p = mod)
 {
     int s = 1;
-    for (; t; t >>= 1, a = (ll)a * a % mod)
+    for (; t; t >>= 1, a = (ll)a * a % p)
         if (t & 1)
-            s = (ll)s * a % mod;
+            s = (ll)s * a % p;
     return s;
 }
 
@@ -183,17 +221,20 @@ namespace FFT
         return ans;
     }
 
+    // % x^k
+    // b 可先对 mod 取模
+    // 当 a0 = 1 时， 也可转为求 e^{k*ln(a)}
     poly PolyPow(const poly &a, int b, int k)
     {
         poly res(1, 1);
         poly aa(a);
         while (b)
         {
-            aa.resize(k + 1);
+            aa.resize(k);
             if (b & 1)
             {
                 res = Mul(res, aa);
-                res.resize(k + 1);
+                res.resize(k);
             }
             aa = Mul(aa, aa);
             b >>= 1;
@@ -224,7 +265,7 @@ namespace FFT
         for (int i = 0; i < n; ++i)
             b[i] = A[i];
     }
-    poly getinv(poly a, int n)
+    poly getinv(const poly &a, int n)
     {
         int *b = new int[n], *c = new int[n], sz = a.size();
         for (int i = 0; i < n; ++i)
@@ -239,6 +280,60 @@ namespace FFT
         delete[] b;
         delete[] c;
         return ans;
+    }
+
+    // 结果 %x^len
+    poly derivation(const poly &a, int len)
+    {
+        poly ans(len, 0);
+        for (int i = 0; i < len && i + 1 < a.size(); ++i)
+            ans[i] = (ll)a[i + 1] * (i + 1) % mod;
+        return ans;
+    }
+
+    // 注意常数项这里默认为 0
+    // 结果 %x^len
+    poly integral(const poly &a, int len)
+    {
+        poly ans(len, 0);
+        for (int i = 1; i < len && i - 1 < a.size(); ++i)
+            ans[i] = (ll)a[i - 1] * qpow(i, mod - 2) % mod;
+        return ans;
+    }
+
+    // 模意义下当且仅当 a0 = 1 时，a 有对数多项式
+    // 结果 %x^len
+    poly getln(const poly &a, int len)
+    {
+        poly dB = Mul(derivation(a, len), getinv(a, len));
+        dB.resize(len);
+        return integral(dB, len);
+    }
+
+    // a0 = 0 时有意义
+    // exp 结果 %x^len
+    void Exp(const poly &a, poly &res, int len)
+    {
+        if (len == 1)
+        {
+            res[0] = 1;
+            return;
+        }
+        Exp(a, res, len + 1 >> 1);
+        poly F = getln(res, len);
+        F[0] = (a[0] + 1 - F[0] + mod) % mod;
+        for (int i = 1; i < len; ++i)
+            F[i] = (a[i] - F[i] + mod) % mod;
+        poly t(res.begin(), res.begin() + len);
+        t = Mul(t, F);
+        for (int i = 0; i < len; ++i)
+            res[i] = t[i];
+    }
+    poly exp(const poly &a, int len)
+    {
+        poly res(len, 0);
+        Exp(a, res, len);
+        return res;
     }
 }
 
