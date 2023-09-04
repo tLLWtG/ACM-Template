@@ -4,6 +4,8 @@
 #include <math.h>
 #include <time.h>
 
+#define ll long long
+
 int main()
 {
     // clock_t st = clock(), ed;
