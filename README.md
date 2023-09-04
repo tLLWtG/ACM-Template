@@ -13,7 +13,7 @@
 
 * Calculation_2D, Calculation_3D, Chinese_Remainder_Theorem, Classical_Game, Combination
 
-* Data, Difference, Dijkstra, Dominator_Tree, DP_Knapsack, DP_Range, DP_Tree, DSU
+* Data, Difference, Dijkstra, Dominator_Tree, DP_Digit, DP_Knapsack, DP_Range, DP_Tree, DSU
 
 * Euler's_Totient_Function, Every-SG, Exgcd
 
@@ -41,13 +41,17 @@
 
 * Tarjan, Ternary_Search, Topology_Sort, Tricks, Trie
 
-> Total: 73 templates
+> Total: 74 templates
 > 
 > and more to be added......
 
 
 
 # UPD History
+
+### 2023.09.04
+
+* DP_Digit
 
 ### 2023.08.30
 
