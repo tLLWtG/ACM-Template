@@ -21,7 +21,7 @@
 
 * Gauss_Jordan_Elimination, GCD, Gospers_Hack, Graph
 
-* Hash, Heap, Hungarian_Algorithm
+* Hash, Heap, Heavy_Path_Decomposition, Heuristic_Merge, Hungarian_Algorithm
 
 * Johnson
 
@@ -33,7 +33,7 @@
 
 * n_D_Prefix_Sum
 
-* Persistent_DS, Pollard_Rho, Poly, Prim, Prime
+* Persistent_DS, Pigeonhole_Principle, Pollard_Rho, Poly, Prim, Prime
 
 * Quick_Pow
 
@@ -41,13 +41,17 @@
 
 * Tarjan, Ternary_Search, Topology_Sort, Tricks, Trie
 
-> Total: 74 templates
+> Total: 77 templates
 > 
 > and more to be added......
 
 
 
 # UPD History
+
+### 2023.09.20
+
+* Heavy_Path_Decomposition, Heuristic_Merge, Pigeonhole_Principle
 
 ### 2023.09.04
 
