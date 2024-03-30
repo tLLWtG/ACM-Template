@@ -22,53 +22,66 @@ using pii = pair<int, int>;
 
 /*-------------------------------------------*/
 
-class Gauss_Jordan
+#include <bits/stdc++.h>
+
+using namespace std;
+
+using ll = long long;
+using pii = pair<int, int>;
+
+#define pb push_back
+#define all(x) (x).begin(), (x).end()
+#define fi first
+#define se second
+#define endl '\n'
+
+#define debug(x)                          \
+    {                                     \
+        cerr << #x << " = " << x << endl; \
+    }
+#define debugfull(x)                                                      \
+    {                                                                     \
+        cerr << #x << " = " << x << " (line " << __LINE__ << ")" << endl; \
+    }
+
+/*-------------------------------------------*/
+
+// 0: OK
+// 1: Infinite group solutions
+// 2: No solution
+
+const double eps = 1e-6;
+
+int Guass(int n, vector<vector<double>> &mat)
 {
-private:
-    int n;
-    vector<double> ans;
-    vector<vector<double>> Mat;
-
-public:
-    bool success;
-
-    Gauss_Jordan(int _n, vector<vector<double>> &_Mat) : n(_n), Mat(_Mat), success(true)
+    int r = 1, c = 1;
+    for (; c <= n; ++c)
     {
-        ans.resize(n);
+        int maxi = r;
+        for (int i = r; i <= n; ++i)
+            if (fabs(mat[i][c]) > fabs(mat[maxi][c]))
+                maxi = i;
+        if (fabs(mat[maxi][c]) < eps)
+            continue;
+        for (int j = c; j <= n + 1; ++j)
+            swap(mat[r][j], mat[maxi][j]);
+        for (int j = n + 1; j >= c; --j)
+            mat[r][j] /= mat[r][c];
+        for (int i = r + 1; i <= n; ++i)
+            if (fabs(mat[i][c]) > eps)
+                for (int j = n + 1; j >= c; --j)
+                    mat[i][j] -= mat[i][c] * mat[r][j];
+        ++r;
     }
-    void solve()
+    if (r <= n)
     {
-        for (int i = 0; i < n; i++)
-        {
-            int r = i;
-            for (int j = i + 1; j < n; j++)
-                if (fabs(Mat[j][i]) > fabs(Mat[r][i]))
-                    r = j;
-            if (r != i)
-                for (int j = 0; j <= n; j++)
-                    swap(Mat[r][j], Mat[i][j]);
-            if (fabs(Mat[i][i]) < 1e-6)
-            {
-                success = false;
-                return;
-            }
-            for (int j = n; j >= i; j--)
-            {
-                for (int k = i + 1; k < n; k++)
-                    Mat[k][j] -= Mat[k][i] / Mat[i][i] * Mat[i][j];
-            }
-        }
-        for (int i = n - 1; i >= 0; i--)
-        {
-            for (int j = i + 1; j < n; j++)
-                Mat[i][n] -= Mat[j][n] * Mat[i][j];
-            Mat[i][n] /= Mat[i][i];
-        }
-        for (int i = 0; i < n; ++i)
-            ans[i] = Mat[i][n];
+        for (int i = r; i <= n; ++i)
+            if (fabs(mat[i][n + 1]) > eps)
+                return 2;
+        return 1;
     }
-    vector<double> &get_ans()
-    {
-        return ans;
-    }
-};
+    for (int i = n - 1; i >= 1; --i)
+        for (int j = i + 1; j <= n; ++j)
+            mat[i][n + 1] -= mat[i][j] * mat[j][n + 1];
+    return 0;
+}

@@ -118,3 +118,21 @@ namespace millerRabin
         return 1;
     }
 }
+
+// prime factorization
+
+void prime_factor(int x)
+{
+    for (int i = 2; i <= x / i; ++i)
+    {
+        while (x % i == 0)
+        {
+            // do sth.
+            x /= i;
+        }
+    }
+    if (x > 1)
+    {
+        // do sth.
+    }
+}

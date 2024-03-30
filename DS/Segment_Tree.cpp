@@ -290,12 +290,12 @@ class SegmentTree_max
 private:
     int n;
     vector<T> tree, mark;
-    void push_down(int p, int len)
+    void push_down(int p)
     {
         mark[p * 2] += mark[p];
         mark[p * 2 + 1] += mark[p];
-        tree[p * 2] += mark[p] * (len - len / 2);
-        tree[p * 2 + 1] += mark[p] * (len / 2);
+        tree[p * 2] += mark[p];
+        tree[p * 2 + 1] += mark[p];
         mark[p] = 0;
     }
 
@@ -332,7 +332,7 @@ public:
         else
         {
             int middle = (cl + cr) / 2;
-            push_down(p, cr - cl + 1);
+            push_down(p);
             update(l, r, cl, middle, d, p * 2);
             update(l, r, middle + 1, cr, d, p * 2 + 1);
             tree[p] = max(tree[p * 2], tree[p * 2 + 1]);
@@ -347,7 +347,7 @@ public:
         else
         {
             int mid = (cl + cr) / 2;
-            push_down(p, cr - cl + 1);
+            push_down(p);
             return max(query(l, r, cl, mid, p * 2), query(l, r, mid + 1, cr, p * 2 + 1));
         }
     }

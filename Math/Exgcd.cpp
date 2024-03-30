@@ -24,18 +24,15 @@ using pii = pair<int, int>;
 
 // ax + by = gcd(a, b)
 
-int exgcd1(int a, int b, int &x, int &y)
+ll exgcd(ll a, ll b, ll &x, ll &y)
 {
-    if (!b)
+    if (b == 0)
     {
-        x = 1;
-        y = 0;
+        x = 1, y = 0;
         return a;
     }
-    int d = exgcd1(b, a % b, x, y);
-    int t = x;
-    x = y;
-    y = t - (a / b) * y;
+    ll d = exgcd(b, a % b, y, x);
+    y -= a / b * x;
     return d;
 }
 

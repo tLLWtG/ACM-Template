@@ -22,6 +22,79 @@ using pii = pair<int, int>;
 
 /*-------------------------------------------*/
 
+namespace hsonMerge
+{
+    vector<vector<int>> to;
+    vector<int> sz, hson, ans;
+    multiset<int> book;
+    ll sumi;
+
+    void init() {}
+
+    void dfs0(int u, int fa = -1)
+    {
+        int mx = 0, size = 1;
+        for (auto v : to[u])
+        {
+            if (v != fa)
+            {
+                dfs0(v, u);
+                size += sz[v];
+                if (sz[v] > mx)
+                    hson[u] = v, mx = sz[v];
+            }
+        }
+        sz[u] = size;
+    }
+
+    void add(int u) {}
+    void del(int u) {}
+
+    void addsubtree(int u, int fa = -1)
+    {
+        add(u);
+        for (auto v : to[u])
+        {
+            if (v != fa)
+                addsubtree(v, u);
+        }
+    }
+    void delsubtree(int u, int fa = -1)
+    {
+        del(u);
+        for (auto v : to[u])
+        {
+            if (v != fa)
+                delsubtree(v, u);
+        }
+    }
+
+    void dfs(int u, int fa = -1, bool keep = -1)
+    {
+        // 先遍历轻儿子
+        for (auto v : to[u])
+        {
+            if (v != fa && v != hson[u])
+                dfs(v, u, 0);
+        }
+        // 最后遍历重儿子
+        if (hson[u])
+            dfs(hson[u], u, 1);
+        add(u);
+        for (auto v : to[u])
+        {
+            if (v != fa && v != hson[u])
+                addsubtree(v, u);
+        } // 重儿子的信息没有删除，因此不必再添加
+        ans[u] = sumi;
+        if (!keep)
+        {
+            init();
+            sumi = 0;
+        }
+    }
+}
+
 namespace PD
 {
     template <typename T>

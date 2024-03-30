@@ -24,19 +24,63 @@ using pii = pair<int, int>;
 
 // 1. characters
 
+class Trie
+{
+private:
+    Trie* son[26];
+    bool exist;
+public:
+    Trie()
+    {
+        exist = false;
+        for (int i = 0; i < 26; i++)
+            son[i] = nullptr;
+    }
+    ~Trie()
+    {
+        for (int i = 0; i < 26; i++)
+            if (son[i] != nullptr)
+                delete son[i];
+    }
+    void insert(string &word)
+    {
+        Trie* root = this;
+        for (char x: word)
+        {
+            int cur = x - 'a';
+            if (root->son[cur] == nullptr)
+                root->son[cur] = new Trie();
+            root = root->son[cur];
+        }
+        root->exist = true;
+    }
+    bool find(string &word)
+    {
+        Trie* root = this;
+        for (char x : word)
+        {
+            int cur = x - 'a';
+            if (root->son[cur] == nullptr)
+                return false;
+            root = root->son[cur];
+        }
+        return root->exist;
+    }
+};
+
 // MAXN = N * len
 
 #define MAXN 100005
 
-struct Trie
+struct Trie1
 {
     int nex[MAXN][26], cnt;
     bool exist[MAXN];
 
-    void insert(char *s, int l)
+    void insert(string &s)
     {
         int p = 0;
-        for (int i = 0; i < l; ++i)
+        for (int i = 0; i < s.size(); ++i)
         {
             int c = s[i] - 'a';
             if (!nex[p][c])
@@ -45,10 +89,10 @@ struct Trie
         }
         exist[p] = 1;
     }
-    bool find(char *s, int l)
+    bool find(string &s)
     {
         int p = 0;
-        for (int i = 0; i < l; ++i)
+        for (int i = 0; i < s.size(); ++i)
         {
             int c = s[i] - 'a';
             if (!nex[p][c])
