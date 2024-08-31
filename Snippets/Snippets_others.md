@@ -38,7 +38,27 @@ function main() {
 ## Python
 
 ```Python
+import sys
+import bisect
+import collections
+import heapq
+import math
+from functools import cmp_to_key, lru_cache
+from itertools import permutations, combinations
+from random import getrandbits
 
+input = lambda: sys.stdin.readline().strip()
+# sys.setrecursionlimit(10**5)
+T = 1
+# T = int(input())
+
+
+def solve():
+    pass
+
+
+for _ in range(T):
+    solve()
 ```
 
 ## Java

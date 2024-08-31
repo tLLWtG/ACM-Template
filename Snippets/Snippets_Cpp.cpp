@@ -10,29 +10,25 @@ using pii = pair<int, int>;
 #define fi first
 #define se second
 #define endl '\n'
-
-#define debug(x)                          \
-    {                                     \
-        cerr << #x << " = " << x << endl; \
-    }
-#define debugfull(x)                                                      \
-    {                                                                     \
-        cerr << #x << " = " << x << " (line " << __LINE__ << ")" << endl; \
-    }
+#define debug(x) { cerr << #x << " = " << x << endl; }
 
 /*-------------------------------------------*/
 
+void solve()
+{
+    
+}
+
 int main()
 {
-    // clock_t st = clock(), ed;
-    ios::sync_with_stdio(0);
-    cin.tie(0);
+    cin.tie(0)->sync_with_stdio(0);
     // cout << setprecision(15) << fixed;
-    
+    int T = 1;
+    // cin >> T;
+    while (T--)
+    {
+        solve();
+    }
 
-
-    // ed = clock();
-    // double endtime = (double)(ed - st) / CLOCKS_PER_SEC;
-    // cout << "Total time: " << endtime << endl;
     return 0;
 }
