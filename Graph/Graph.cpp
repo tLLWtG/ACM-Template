@@ -39,44 +39,31 @@ int e2[MAXN][MAXN];
 
 // star
 
-int n, m;
-vector<bool> vis;
-vector<int> head, nxt, to;
+int n, m, cnt = 0;
 
-void add(int u, int v)
+struct Edge
 {
-    nxt.push_back(head[u]);
-    head[u] = to.size();
-    to.push_back(v);
-}
+    int to;
+    int w;
+    int nxt;
+};
+
+vector<Edge> e(m * 2 + 10);
+vector<int> head(n + 1, 0);
+
+function<void(int u, int v, int w)> add = [&](int u, int v, int w)
+{
+    ++cnt;
+    e[cnt].to = v;
+    e[cnt].w = w;
+    e[cnt].nxt = head[u];
+    head[u] = cnt;
+}; 
 
 bool find_edge(int u, int v)
 {
-    for (int i = head[u]; ~i; i = nxt[i])
-        if (to[i] == v)
+    for (int eg = head[u]; eg; eg = e[eg].nxt)
+        if (e[eg].to == v)
             return true;
     return false;
-}
-
-void dfs(int u)
-{
-    if (vis[u])
-        return;
-    vis[u] = true;
-    for (int i = head[u]; ~i; i = nxt[i])
-        dfs(to[i]);
-}
-
-int main()
-{
-    cin >> n >> m;
-    vis.resize(n + 1, false);
-    head.resize(n + 1, -1);
-    for (int i = 1; i <= m; ++i)
-    {
-        int u, v;
-        cin >> u >> v;
-        add(u, v);
-    }
-    return 0;
 }

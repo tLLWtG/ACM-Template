@@ -91,7 +91,7 @@ private:
         void init()
         {
             memset(son, 0, sizeof(son));
-            fail = flag = 0;
+            ans = fail = flag = 0;
         }
     } trie[maxn];
 

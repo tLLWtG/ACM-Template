@@ -352,3 +352,342 @@ public:
         }
     }
 };
+
+// 另一种思路：维护差分数组的正负个数，区间最值（都为0则相等）
+
+template <typename T>
+class SegmentTree1
+{
+public:
+    int n;
+    // vector<T> tree, mark;
+    struct node
+    {
+        T val, mark;
+        bool iseq;
+    };
+    
+    vector<node> tree;
+    
+	struct qres1
+	{
+		T val;
+		bool ok, iseq;
+	};
+	
+    void push_down(int p)
+    {
+        tree[2 * p].val += tree[p].mark;
+        tree[2 * p + 1].val += tree[p].mark;
+        tree[2 * p].mark += tree[p].mark;
+        tree[2 * p + 1].mark += tree[p].mark;
+        tree[p].mark = 0;
+    }
+
+public:
+    vector<T> arr;
+    SegmentTree1(int _n) : n(_n)
+    {
+        tree.resize(4 * n + 10);
+        arr.resize(n + 10);
+    }
+    void build(int l, int r, int p = 1)
+    {
+        if (l == r)
+        {
+            tree[p].val = arr[l];
+            tree[p].mark = 0;
+            tree[p].iseq = true;
+        }
+        else
+        {
+            int middle = (l + r) / 2;
+            build(l, middle, 2 * p);
+            build(middle + 1, r, 2 * p + 1);
+            tree[p].val = tree[2 * p].val;
+            tree[p].mark = 0;
+            tree[p].iseq = tree[2 * p].val == tree[2 * p + 1].val && tree[2 * p].iseq && tree[2 * p + 1].iseq;
+        }
+    }
+    void update(int l, int r, int cl, int cr, T d, int p = 1)
+    {
+        if (cr < l || cl > r)
+            return;
+        else if (l <= cl && cr <= r)
+        {
+            tree[p].val += d;
+            if (cr > cl)
+                tree[p].mark += d;
+        }
+        else
+        {
+            int middle = (cl + cr) / 2;
+            push_down(p);
+            update(l, r, cl, middle, d, p * 2);
+            update(l, r, middle + 1, cr, d, p * 2 + 1);
+            tree[p].val = tree[2 * p].val;
+            tree[p].iseq = tree[2 * p].val == tree[2 * p + 1].val && tree[2 * p].iseq && tree[2 * p + 1].iseq;
+        }
+    }
+    qres1 query(int l, int r, int cl, int cr, int p = 1)
+    {
+        if (cl > r || cr < l)
+            return (qres1){0, false, true};
+        else if (cl >= l && cr <= r)
+        {
+            return (qres1){tree[p].val, true, tree[p].iseq};
+        }
+        else
+        {
+            int mid = (cl + cr) / 2;
+            push_down(p);
+            // return query(l, r, cl, mid, p * 2) && query(l, r, mid + 1, cr, p * 2 + 1) && tree[2 * p].val == tree[2 * p + 1].val;
+            qres1 res1 = query(l, r, cl, mid, p * 2);
+            qres1 res2 = query(l, r, mid + 1, cr, p * 2 + 1);
+
+            if (res1.ok && res2.ok)
+            {
+                return (qres1){res1.val, true, res1.iseq && res2.iseq && res1.val == res2.val};
+            }
+            else if (res1.ok && !res2.ok)
+            {
+				return (qres1){res1.val, true, res1.iseq};
+            }
+            else if (!res1.ok && res2.ok)
+            {
+				return (qres1){res2.val, true, res2.iseq};
+            }
+            else
+            {
+				return (qres1){0, false, true};
+            }
+        }
+    }
+};
+
+template <typename T>
+class SegmentTree2
+{
+private:
+    int n;
+    // vector<T> tree, mark;
+    struct node
+    {
+        T lval, rval, mark;
+        bool isgt;
+    };
+    vector<node> tree;
+    
+    struct qres2
+    {
+        T lval, rval;
+        bool ok, isgt;
+    };
+
+    void push_down(int p)
+    {
+        tree[2 * p].lval += tree[p].mark;
+        tree[2 * p + 1].lval += tree[p].mark;
+        tree[2 * p].rval += tree[p].mark;
+        tree[2 * p + 1].rval += tree[p].mark;
+        tree[2 * p].mark += tree[p].mark;
+        tree[2 * p + 1].mark += tree[p].mark;
+        tree[p].mark = 0;
+    }
+
+public:
+    vector<T> arr;
+    SegmentTree2(int _n) : n(_n)
+    {
+        tree.resize(4 * n + 10);
+        arr.resize(n + 10);
+    }
+    void build(int l, int r, int p = 1)
+    {
+        if (l == r)
+        {
+            tree[p].lval = arr[l];
+            tree[p].rval = arr[l];
+            tree[p].mark = 0;
+            tree[p].isgt = true;
+        }
+        else
+        {
+            int middle = (l + r) / 2;
+            build(l, middle, 2 * p);
+            build(middle + 1, r, 2 * p + 1);
+            tree[p].lval = tree[2 * p].lval;
+            tree[p].rval = tree[2 * p + 1].rval;
+            tree[p].mark = 0;
+            tree[p].isgt = tree[2 * p].rval < tree[2 * p + 1].lval && tree[2 * p].isgt && tree[2 * p + 1].isgt;
+        }
+    }
+    void update(int l, int r, int cl, int cr, T d, int p = 1)
+    {
+        if (cr < l || cl > r)
+            return;
+        else if (l <= cl && cr <= r)
+        {
+            tree[p].lval += d;
+            tree[p].rval += d;
+            if (cr > cl)
+                tree[p].mark += d;
+        }
+        else
+        {
+            int middle = (cl + cr) / 2;
+            push_down(p);
+            update(l, r, cl, middle, d, p * 2);
+            update(l, r, middle + 1, cr, d, p * 2 + 1);
+            tree[p].lval = tree[2 * p].lval;
+            tree[p].rval = tree[2 * p + 1].rval;
+            tree[p].isgt = tree[2 * p].rval < tree[2 * p + 1].lval && tree[2 * p].isgt && tree[2 * p + 1].isgt;
+        }
+    }
+    qres2 query(int l, int r, int cl, int cr, int p = 1)
+    {
+        if (cl > r || cr < l)
+            return (qres2){0, 0, false, true};
+        else if (cl >= l && cr <= r)
+            return (qres2){tree[p].lval, tree[p].rval, true, tree[p].isgt};
+        else
+        {
+            int mid = (cl + cr) / 2;
+            push_down(p);
+            // return query(l, r, cl, mid, p * 2) && query(l, r, mid + 1, cr, p * 2 + 1) && tree[2 * p].rval < tree[2 * p + 1].lval;
+//            return query(l, r, cl, mid, p * 2) && query(l, r, mid + 1, cr, p * 2 + 1);
+			qres2 res1 = query(l, r, cl, mid, p * 2);
+			qres2 res2 = query(l, r, mid + 1, cr, p * 2 + 1);
+			
+			if (res1.ok && res2.ok)
+			{
+				return (qres2){res1.lval, res2.rval, true, res1.isgt && res2.isgt && res1.rval < res2.lval};
+			}
+			else if (res1.ok && !res2.ok)	
+			{
+				return (qres2){res1.lval, res2.rval, true, res1.isgt};
+			}
+			else if (!res1.ok && res2.ok)
+			{
+				return (qres2){res2.lval, res2.rval, true, res2.isgt};
+			}
+			else
+			{
+				return (qres2){0, 0, false, true};
+			}
+        }
+    }
+};
+
+template <typename T>
+class SegmentTree3
+{
+private:
+    int n;
+    // vector<T> tree, mark;
+    struct node
+    {
+        T lval, rval, mark;
+        bool islt;
+    };
+    vector<node> tree;
+	struct qres3
+	{
+		T lval, rval;
+		bool ok, islt;
+	};
+    
+    void push_down(int p)
+    {
+        tree[2 * p].lval += tree[p].mark;
+        tree[2 * p + 1].lval += tree[p].mark;
+        tree[2 * p].rval += tree[p].mark;
+        tree[2 * p + 1].rval += tree[p].mark;
+        tree[2 * p].mark += tree[p].mark;
+        tree[2 * p + 1].mark += tree[p].mark;
+        tree[p].mark = 0;
+    }
+
+public:
+    vector<T> arr;
+    SegmentTree3(int _n) : n(_n)
+    {
+        tree.resize(4 * n + 10);
+        arr.resize(n + 10);
+    }
+    void build(int l, int r, int p = 1)
+    {
+        if (l == r)
+        {
+            tree[p].lval = arr[l];
+            tree[p].rval = arr[l];
+            tree[p].mark = 0;
+            tree[p].islt = true;
+        }
+        else
+        {
+            int middle = (l + r) / 2;
+            build(l, middle, 2 * p);
+            build(middle + 1, r, 2 * p + 1);
+            tree[p].lval = tree[2 * p].lval;
+            tree[p].rval = tree[2 * p + 1].rval;
+            tree[p].mark = 0;
+            tree[p].islt = tree[2 * p].rval > tree[2 * p + 1].lval && tree[2 * p].islt && tree[2 * p + 1].islt;
+        }
+    }
+    void update(int l, int r, int cl, int cr, T d, int p = 1)
+    {
+        if (cr < l || cl > r)
+            return;
+        else if (l <= cl && cr <= r)
+        {
+            tree[p].lval += d;
+            tree[p].rval += d;
+            if (cr > cl)
+                tree[p].mark += d;
+        }
+        else
+        {
+            int middle = (cl + cr) / 2;
+            push_down(p);
+            update(l, r, cl, middle, d, p * 2);
+            update(l, r, middle + 1, cr, d, p * 2 + 1);
+            tree[p].lval = tree[2 * p].lval;
+            tree[p].rval = tree[2 * p + 1].rval;
+            tree[p].islt = tree[2 * p].rval > tree[2 * p + 1].lval && tree[2 * p].islt && tree[2 * p + 1].islt;
+        }
+    }
+    qres3 query(int l, int r, int cl, int cr, int p = 1)
+    {
+        if (cl > r || cr < l)
+            return (qres3){0, 0, false, true};
+        else if (cl >= l && cr <= r)
+            return (qres3){tree[p].lval, tree[p].rval, true, tree[p].islt};
+        else
+        {
+            int mid = (cl + cr) / 2;
+            push_down(p);
+            // return query(l, r, cl, mid, p * 2) && query(l, r, mid + 1, cr, p * 2 + 1) && tree[2 * p].rval > tree[2 * p + 1].lval;
+//            return query(l, r, cl, mid, p * 2) && query(l, r, mid + 1, cr, p * 2 + 1);
+			qres3 res1 = query(l, r, cl, mid, p * 2);
+			qres3 res2 = query(l, r, mid + 1, cr, p * 2 + 1);
+			
+			if (res1.ok && res2.ok)
+			{
+				return (qres3){res1.lval, res2.rval, true, res1.islt && res2.islt && res1.rval > res2.lval};
+			}
+			else if (res1.ok && !res2.ok)	
+			{
+				return (qres3){res1.lval, res2.rval, true, res1.islt};
+			}
+			else if (!res1.ok && res2.ok)
+			{
+				return (qres3){res2.lval, res2.rval, true, res2.islt};
+			}
+			else
+			{
+				return (qres3){0, 0, false, true};
+			}
+        }
+    }
+};

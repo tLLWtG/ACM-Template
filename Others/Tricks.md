@@ -57,6 +57,14 @@
     }
     ```
 
+* two rectangles cross
+    ```cpp
+    bool cross(Rec A, Rec B)
+    {
+        return max(A.x1, B.x1) <= min(A.x2, B.x2) && max(A.y1, B.y1) <= min(A.y2, B.y2);
+    }
+    ```
+
 * tie and tuple
     ```cpp
     tuple<int, int, int, char> t(3, 4, 5, 'g');

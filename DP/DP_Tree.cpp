@@ -198,3 +198,25 @@ int main()
     // cout << "Total time: " << endtime << endl;
     return 0;
 }
+
+// 直径
+
+int ans = 0;
+vector<vector<int>> to(n + 1);
+vector<int> d1(n + 1), d2(n + 1);
+
+function<void(int u, int fa)> dfs_1 = [&](int u, int fa)
+{
+    d1[u] = d2[u] = 0;
+    for (auto v: to[u])
+    {
+        if (v == fa)
+            continue;
+        int t = d1[v] + 1;
+        if (t > d1[u])
+            d2[u] = d1[u], d1[u] = t;
+        else if (t > d2[u])
+            d2[u] = t;
+    }
+    ans = max(ans, d1[u] + d2[u]);
+};
