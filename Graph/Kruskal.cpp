@@ -51,9 +51,9 @@ public:
     }
     void merge(int x, int y)
     {
-        if (x == y)
-            return;
         int xfa = find(x), yfa = find(y);
+        if (xfa == yfa)
+            return;
         if (sz[xfa] <= sz[yfa])
         {
             sz[yfa] += sz[xfa];

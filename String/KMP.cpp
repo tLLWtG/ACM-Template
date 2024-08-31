@@ -22,38 +22,41 @@ using pii = pair<int, int>;
 
 /*-------------------------------------------*/
 
-class KMP
-{
-private:
-    vector<int> pmt;
-    string p;
+// index starts from 1: s, p
 
-public:
-    KMP(const string &_p) : p(_p)
+namespace KMP
+{
+    const int N = 100010, M = 1000010;
+
+    int n, m;
+    int ne[N];
+    char s[M], p[N];
+
+    void get_next()
     {
-        pmt.resize(p.length() + 5, 0);
-        for (int i = 1, j = 0; i < p.length(); ++i)
+        for (int i = 2, j = 0; i <= n; ++i)
         {
-            while (j && p[i] != p[j])
-                j = pmt[j - 1];
-            if (p[i] == p[j])
-                j++;
-            pmt[i] = j;
+            while (j && p[i] != p[j + 1])
+                j = ne[j];
+            if (p[i] == p[j + 1])
+                ++j;
+            ne[i] = j;
         }
     }
-    void find(const string &s)
+
+    void match()
     {
-        for (int i = 0, j = 0; i < s.length(); ++i)
+        for (int i = 1, j = 0; i <= m; ++i)
         {
-            while (j && s[i] != p[j])
-                j = pmt[j - 1];
-            if (s[i] == p[j])
-                j++;
-            if (j == p.length())
+            while (j && s[i] != p[j + 1])
+                j = ne[j];
+            if (s[i] == p[j + 1])
+                ++j;
+            if (j == n)
             {
-                cout << i - j + 2 << endl;
-                j = pmt[j - 1];
+                printf("%d ", i - n);
+                j = ne[j];
             }
         }
     }
-};
+}
