@@ -1,23 +1,6 @@
-#include <bits/stdc++.h>
+### DP_Knapsack
 
-using namespace std;
-
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-#define MAXN 1005
-
-int dp[MAXN], v[MAXN], w[MAXN], W;
-
+```cpp
 // 1. 01
 
 void dp1(int n)
@@ -104,3 +87,5 @@ void dp6(int n)
 // 00000001
 // 00000101
 // 00101101
+```
+

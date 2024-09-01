@@ -1,21 +1,18 @@
-#include <bits/stdc++.h>
+### DP_Digit
 
-using namespace std;
+> 记忆化搜索或循环迭代递推或（人类智慧）
+> 
+> 求 [l, r] 答案时，可考虑 [0, r] - [0, l - 1]
+> 
+> 数字间无关系时，可考虑每个数字分别 dp 一次
+> 
+> 考虑贡献
+> 
+> 可拓展到其他进制
 
-using ll = long long;
-using pii = pair<int, int>;
+1. 给定正整数 n，返回在 [1, n] 范围内无重复数字的正整数的个数。
 
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// 给定正整数 n，返回在 [1, n] 范围内无重复数字的正整数的个数。
-
+```cpp
 ll digitDP(ll n)
 {
     string s = to_string(n);
@@ -41,9 +38,11 @@ ll digitDP(ll n)
     };
     return f(0, 0, true, false);
 }
+```
 
-// 求 [a,b] 范围的所有整数中，每个数码(digit)各出现了多少次
+2. 求 [a,b] 范围的所有整数中，每个数码(digit)各出现了多少次
 
+```cpp
 namespace count
 {
     vector<ll> digitDP(ll n)
@@ -95,9 +94,5 @@ namespace count
         return 0;
     }
 }
+```
 
-// 记忆化搜索或循环迭代递推或（人类智慧）
-// 求 [l, r] 答案时，可考虑 [0, r] - [0, l - 1]
-// 数字间无关系时，可考虑每个数字分别 dp 一次
-// 考虑贡献
-// 可拓展到其他进制

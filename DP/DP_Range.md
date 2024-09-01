@@ -1,19 +1,6 @@
-#include <bits/stdc++.h>
+### DP_Range
 
-using namespace std;
-
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
+```cpp
 // luogu P1880 (max)
 
 int dp(int n)
@@ -33,3 +20,5 @@ int dp(int n)
         ans = max(ans, dp[i][j]);
     return ans;
 }
+```
+

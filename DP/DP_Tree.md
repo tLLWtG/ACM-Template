@@ -1,21 +1,8 @@
-#include <bits/stdc++.h>
+### DP_Tree
 
-using namespace std;
+1. luogu P1352
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// luogu P1352
-
+```cpp
 int dp[10005][2], isnhead[10005], vis[10005];
 
 vector<vector<int>> v(10005);
@@ -55,9 +42,11 @@ void dp_tree()
         }
     }
 }
+```
 
-// P3478 preprocess tree dp
+2. P3478 preprocess tree dp
 
+```cpp
 vector<vector<ll>> v2(1e6 + 5);
 
 vector<ll> dp2(1e6 + 5, 0), sz2(1e6 + 5, 0), dep2(1e6 + 5, 0);
@@ -109,11 +98,11 @@ void dp_tree2()
         }
     cout << id << endl;
 }
+```
 
-// CF 1822F
+3. CF 1822F(max distance)
 
-// max distance
-
+```cpp
 vector<vector<int>> e(2e5 + 5);
 vector<ll> dep(2e5 + 5, 0), down(2e5 + 5), up(2e5 + 5);
 
@@ -190,9 +179,11 @@ int main()
     // cout << "Total time: " << endtime << endl;
     return 0;
 }
+```
 
-// 直径
+4. 直径
 
+```cpp
 int ans = 0;
 vector<vector<int>> to(n + 1);
 vector<int> d1(n + 1), d2(n + 1);
@@ -212,3 +203,5 @@ function<void(int u, int fa)> dfs_1 = [&](int u, int fa)
     }
     ans = max(ans, d1[u] + d2[u]);
 };
+```
+
