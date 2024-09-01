@@ -1,21 +1,8 @@
-#include <bits/stdc++.h>
+### Rotating_Calipers
 
-using namespace std;
+> 不要求顺序
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// 不要求顺序
-
+```cpp
 namespace RC
 {
     const int maxn = 1e6 + 5;
@@ -113,3 +100,5 @@ namespace RC
         return v;
     }
 }
+```
+

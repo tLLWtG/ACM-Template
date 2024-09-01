@@ -1,19 +1,6 @@
-#include <bits/stdc++.h>
+### Sweep_Line
 
-using namespace std;
-
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
+```cpp
 #define maxn 300
 
 int lazy[maxn << 3];  // 标记了这条线段出现的次数
@@ -101,3 +88,5 @@ int main() {
     }
     return 0;
 }
+```
+
