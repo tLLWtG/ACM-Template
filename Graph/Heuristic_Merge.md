@@ -1,28 +1,12 @@
-#include <bits/stdc++.h>
+### Heuristic_Merge
 
-using namespace std;
+> 启发式合并：将小的集合合并到大的集合中，以降低平均时间复杂度，一般为 nlogn。
 
-using ll = long long;
-using pii = pair<int, int>;
+1. 树上启发式合并 (dsu on tree)
 
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
+> 给出一棵 n 个节点以 1 为根的树，节点 u 的颜色为 c_u，现在对于每个结点 u 询问 u 子树里一共出现了多少种不同的颜色。(n <= 10^5)
 
-/*-------------------------------------------*/
-
-// 启发式合并：将小的集合合并到大的集合中，以降低平均时间复杂度，一般为 nlogn。
-
-// 1. 树上启发式合并 (dsu on tree)
-
-// from oiwiki
-
-// 给出一棵 n 个节点以 1 为根的树，节点 u 的颜色为 c_u，现在对于每个结点 u 询问 u 子树里一共出现了多少种不同的颜色。
-// (n <= 10^5)
-
+```cpp
 namespace solve
 {
     const int N = 1e5 + 5;
@@ -119,3 +103,5 @@ namespace solve
         return 0;
     }
 }
+```
+

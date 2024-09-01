@@ -1,19 +1,8 @@
-#include <bits/stdc++.h>
+### Heavy_Path_Decomposition
 
-using namespace std;
+1. 合并
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
+```cpp
 namespace hsonMerge
 {
     vector<vector<int>> to;
@@ -86,7 +75,11 @@ namespace hsonMerge
         }
     }
 }
+```
 
+2. 重链剖分+线段树维护
+
+```cpp
 namespace PD
 {
     template <typename T>
@@ -269,3 +262,5 @@ namespace PD
         return tree.query(dfn[x], rdfn[x], 1, n);
     }
 }
+```
+

@@ -1,24 +1,12 @@
-#include <bits/stdc++.h>
+### Augmenting_Path_Algorithm
 
-using namespace std;
+> index starts from 1
+> 
+> only save oriented graph
+> 
+>match: n2 part to n1 part
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// index starts from 1
-// only save oriented graph
-
-// match: n2 part to n1 part
-
+```cpp
 void solve()
 {
     const int maxn = 505;
@@ -54,3 +42,5 @@ void solve()
     }
     cout << ans << endl;
 }
+```
+

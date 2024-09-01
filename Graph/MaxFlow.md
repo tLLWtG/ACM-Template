@@ -1,25 +1,12 @@
-#include <bits/stdc++.h>
+### MaxFlow
 
-using namespace std;
+1. EK
 
-using ll = long long;
-using pii = pair<int, int>;
+> O(V*E^2)
+>
+> 未处理重边
 
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// EK
-
-// O(V*E*E)
-
-// 未处理重边
-
+```cpp
 struct Edge
 {
     int to;
@@ -88,13 +75,17 @@ void solve()
     }
     cout << maxflow << endl;
 }
+```
 
-// Dinic
+2. Dinic
 
-// O(V*V*E) 跑不满
-// 在单位容量的网络上，Dinic 算法的总时间复杂度是 O(E*min(E^0.5, V^0.66))
-// 在单位容量的网络上，如果除源汇点外每个结点 u 都满入度出度为 1，Dinic 算法的总时间复杂度是 O(E*V^0.5)
+> O(V^2*E) 跑不满
+> 
+> 在单位容量的网络上，Dinic 算法的总时间复杂度是 O(E*min(E^0.5, V^0.66))
+> 
+> 在单位容量的网络上，如果除源汇点外每个结点 u 都满入度出度为 1，Dinic 算法的总时间复杂度是 O(E*V^0.5)
 
+```cpp
 namespace Dinic
 {
     const ll N = 1e4, INF = 1e9;
@@ -184,3 +175,5 @@ namespace Dinic
         cout << mf.maxflow << endl;
     }
 }
+```
+

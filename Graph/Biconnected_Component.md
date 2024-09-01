@@ -1,19 +1,8 @@
-#include <bits/stdc++.h>
+### Biconnected_Component
 
-using namespace std;
+1. Edge-bcc
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
+```cpp
 namespace Ebcc
 {
     const int N = 5e5 + 5, M = 2e6 + 5;
@@ -72,7 +61,11 @@ namespace Ebcc
         return 0;
     }
 }
+```
 
+2. Vetex-bcc
+
+```cpp
 namespace Vbcc
 {
     const int N = 5e5 + 5, M = 2e6 + 5;
@@ -137,3 +130,5 @@ namespace Vbcc
         return 0;
     }
 }
+```
+

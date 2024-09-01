@@ -1,21 +1,8 @@
-#include <bits/stdc++.h>
+### Kosaraju
 
-using namespace std;
+> g 是原图，g2 是反图
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// g 是原图，g2 是反图
-
+```cpp
 #define MAXN 100005
 
 vector<bool> vis(MAXN);
@@ -23,8 +10,6 @@ vector<int> color(MAXN), s;
 int n, sccCnt;
 
 vector<vector<int>> g(MAXN), g2(MAXN);
-
-// g2 is the converse digraph of g
 
 void dfs1(int u)
 {
@@ -56,3 +41,5 @@ void kosaraju()
             dfs2(s[i]);
         }
 }
+```
+

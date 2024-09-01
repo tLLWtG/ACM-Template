@@ -1,24 +1,12 @@
-#include <bits/stdc++.h>
+### Hungarian_Algorithm
 
-using namespace std;
+> Hungarian Algorithm or Kuhn–Munkres Algorithm
+>
+> index starts from 0
+> 
+> if perfect is true and output is about -1e14, there is no solution
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// Hungarian Algorithm or Kuhn–Munkres Algorithm
-
-// index starts from 0
-// if perfect is true and output is about -1e14, there is no solution
-
+```cpp
 template <typename T>
 class Hungarian
 {
@@ -171,3 +159,5 @@ public:
         return res;
     }
 };
+```
+

@@ -1,19 +1,8 @@
-#include <bits/stdc++.h>
+### Dijkstra
 
-using namespace std;
+1. 堆优化
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
+```cpp
 class Dij
 {
 public:
@@ -63,9 +52,11 @@ public:
 private:
     int n;
 };
+```
 
-// m >> n
+2. 直接遍历（m >> n）
 
+```cpp
 class Dij_2
 {
 public:
@@ -111,7 +102,5 @@ public:
 private:
     int n;
 };
-
-
-
+```
 

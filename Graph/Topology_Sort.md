@@ -1,22 +1,10 @@
-#include <bits/stdc++.h>
+### Topology_Sort
 
-using namespace std;
+> Kahn
+> 
+> use priority_queue for lexicographical order
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// Kahn
-//  deg is in
-// use priority_queue for lexicographical order
+```cpp
 #define MAXN 0x3f3f3f
 int deg[MAXN], A[MAXN];
 vector<int> edges[MAXN];
@@ -41,3 +29,5 @@ bool toposort(int n)
     }
     return cnt == n;
 }
+```
+

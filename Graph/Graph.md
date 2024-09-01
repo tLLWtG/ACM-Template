@@ -1,36 +1,25 @@
-#include <bits/stdc++.h>
+### Graph
 
-using namespace std;
+1. 邻接表
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-#define MAXN 100005
-
-//
-
+```cpp
 struct edge
 {
     int v, w;
 };
 
 vector<vector<edge>> e1(MAXN);
+```
 
-//
+2. 邻接矩阵
 
+```cpp
 int e2[MAXN][MAXN];
+```
 
-// star
+3. 链式前向星
 
+```cpp
 int n, m, cnt = 0;
 
 struct Edge
@@ -59,3 +48,4 @@ bool find_edge(int u, int v)
             return true;
     return false;
 }
+```

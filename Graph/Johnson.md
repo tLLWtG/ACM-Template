@@ -1,21 +1,6 @@
-#include <bits/stdc++.h>
+### Johnson
 
-using namespace std;
-
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// from luogu
-
+```cpp
 #define MAXN 10005
 const ll inf = 1e9;
 
@@ -144,3 +129,5 @@ int main()
     // cout << "Total time: " << endtime << endl;
     return 0;
 }
+```
+
