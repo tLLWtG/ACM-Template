@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#include <sys/time.h>
 
 using namespace std;
 
@@ -11,18 +10,11 @@ using pii = pair<int, int>;
 #define fi first
 #define se second
 #define endl '\n'
-
-#define debug(x)                          \
-    {                                     \
-        cerr << #x << " = " << x << endl; \
-    }
-#define debugfull(x)                                                      \
-    {                                                                     \
-        cerr << #x << " = " << x << " (line " << __LINE__ << ")" << endl; \
-    }
+#define debug(x) { cerr << #x << " = " << x << endl; }
 
 /*-------------------------------------------*/
 
+#include <sys/time.h>
 // millisecond
 // you should include <sys/time.h> before use it
 

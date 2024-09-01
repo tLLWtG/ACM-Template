@@ -10,11 +10,7 @@ using pii = pair<int, int>;
 #define fi first
 #define se second
 #define endl '\n'
-
-#define debug(x)                          \
-    {                                     \
-        cerr << #x << " = " << x << endl; \
-    }
+#define debug(x) { cerr << #x << " = " << x << endl; }
 
 /*-------------------------------------------*/
 
