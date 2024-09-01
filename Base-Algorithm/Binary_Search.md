@@ -1,27 +1,8 @@
-#include <bits/stdc++.h>
+### Binary_Search
 
-using namespace std;
+1. `[left, right)` version
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-#define MAXN 100005
-
-int arr[MAXN];
-
-bool check(int x) {}
-
-// [left, right) version
-
+```cpp
 int binary_search1(int l, int r, int key)
 {
     ++r;
@@ -59,9 +40,11 @@ int binary_ans1(int l, int r)
     }
     return res;
 }
+```
 
-// [left, right] version
+2. `[left, right]` version
 
+```cpp
 int binary_search2(int l, int r, int key)
 {
     int res = -1, mid;
@@ -97,3 +80,5 @@ int binary_ans2(int l, int r)
     }
     return res;
 }
+```
+

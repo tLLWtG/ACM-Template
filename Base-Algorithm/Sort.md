@@ -1,21 +1,10 @@
-#include <bits/stdc++.h>
+### Sort
 
-using namespace std;
+1. Quicksort
 
-using ll = long long;
-using pii = pair<int, int>;
+> Quicksort can find the k-th element
 
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// 1. Quicksort
-#define MAXN 100005
+```cpp
 int arr[MAXN];
 
 void myqsort(int arr[], int l, int r)
@@ -37,10 +26,13 @@ void myqsort(int arr[], int l, int r)
     myqsort(arr, l, j);
     myqsort(arr, j + 1, r);
 }
-// find the k-th order statistic with qsprt
+```
 
-// 2. Merge sort
+1. Merge sort
 
+> Merge sort can count Inversions
+
+```cpp
 int arr[MAXN], brr[MAXN];
 
 void msort(int b, int e)
@@ -63,4 +55,5 @@ void msort(int b, int e)
     for (int l = b; l <= e; ++l)
         arr[l] = brr[l];
 }
-// Count Inversions with msort
+```
+

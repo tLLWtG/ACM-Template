@@ -1,31 +1,17 @@
-#include <bits/stdc++.h>
+### n_D_Prefix_Sum
 
-using namespace std;
+1. with Principle of inclusion-exclusion
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// nD Prefix Sum
-
-// 1. with Principle of inclusion-exclusion
-
+```cpp
 // s[i]=a[i]+s[i−1]
 // s[i][j]=a[i][j]+s[i−1][j]+s[i][j−1]−s[i−1][j−1]
 // s[i][j][k]=a[i][j][k]+s[i−1][j][k]+s[i][j−1][k]+s[i][j][k−1]−s[i−1][j−1][k]−s[i−1][j][k−1]−s[i][j−1][j−1]+s[i−1][j−1][k−1]
 // ......
+```
 
-// 2. DP
-#define MAXN 1005
+2. DP
 
+```cpp
 void prefix_2D()
 {
     int a[MAXN][MAXN], n, m;
@@ -53,3 +39,5 @@ void prefix_3D()
             for (int k = 1; k <= p; ++k)
                 a[i][j][k] += a[i][j][k - 1];
 }
+```
+

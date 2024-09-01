@@ -1,19 +1,6 @@
-#include <bits/stdc++.h>
+### Quick_Pow
 
-using namespace std;
-
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
+```cpp
 ll qpow(ll a, ll t, ll mod)
 {
     a %= mod;
@@ -77,3 +64,5 @@ namespace MatPow
         return res;
     }
 }
+```
+

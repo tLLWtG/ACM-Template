@@ -1,23 +1,9 @@
-#include <bits/stdc++.h>
+### Difference
 
-using namespace std;
+1. 1d
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-#define MAXN 1000
-
-int diff_1[MAXN + 1], arr[MAXN];
-int diff_2[MAXN + 1][MAXN + 1], mat[MAXN][MAXN];
+```cpp
+int diff_1[MAXN];
 
 void insert_1(int l, int r, int val)
 {
@@ -34,8 +20,14 @@ void build_1(int n)
         arr[i] = cur;
     }
 }
+```
 
+2. 2d
+
+```cpp
 // 2d -> 1d
+
+int diff_2[MAXN][MAXN];
 
 void insert_2_v1(int x1, int y1, int x2, int y2, int val)
 {
@@ -75,17 +67,23 @@ void build_2_v2(int n, int m)
         for (int j = 1; j <= m; ++j)
             mat[i][j] = diff_2[i][j] + mat[i - 1][j] + mat[i][j - 1] - mat[i - 1][j - 1];
 }
+```
 
-// 对角线差分
-// rl[x + y], lr[x - y + n]
+3. 对角线差分
 
-// 差分可用于区间去重
-// lr[MAXN][MAXN]
+`rl[x + y], lr[x - y + n]`
+
+4. 差分用于区间去重
+
+```cpp
 // 对不符合的区间加上 1，则符合的区间累加后一定为 0，由此可以进行计数
-// for (int i = 1; i <= n; ++i)
-//     for (int j = 1; j <= n; ++j)
-//     {
-//         lr[i][j] += lr[i][j - 1];
-//         if (!lr[i][j] && i <= j)
-//             ++ans;
-//     }
+int lr[MAXN][MAXN];
+for (int i = 1; i <= n; ++i)
+    for (int j = 1; j <= n; ++j)
+    {
+        lr[i][j] += lr[i][j - 1];
+        if (!lr[i][j] && i <= j)
+            ++ans;
+    }
+```
+

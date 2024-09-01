@@ -1,19 +1,6 @@
-#include <bits/stdc++.h>
+### Ternary_Search
 
-using namespace std;
-
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
+```cpp
 // Min Version
 
 double f(double x) {}
@@ -53,3 +40,5 @@ int ternary_ans()
     ans = min(ans, run(r));
     return ans;
 }
+```
+
