@@ -1,22 +1,12 @@
-#include <bits/stdc++.h>
+### Dominator_Tree
 
-using namespace std;
+1. version 1
 
-using ll = long long;
-using pii = pair<int, int>;
+> index start from 0
+> 
+> must be connected gragh
 
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// index start from 0
-// must be connected gragh
-
+```cpp
 class DomTree
 {
 public:
@@ -107,11 +97,17 @@ public:
         getsize(entry, 0);
     }
 };
+```
 
-// only for dag
-// index start from 1
-// work for forest
+2. version 2
 
+> only for DAG
+> 
+> index start from 1
+> 
+> work for forest
+
+```cpp
 namespace DomTree_dag
 {
     const int MAX = 65536;
@@ -236,3 +232,5 @@ namespace DomTree_dag
         return 0;
     }
 }
+```
+

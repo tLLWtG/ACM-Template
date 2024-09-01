@@ -1,23 +1,10 @@
-#include <bits/stdc++.h>
+### Segment_Tree
 
-using namespace std;
+> if data is complex, use node struct to manage them
 
-using ll = long long;
-using pii = pair<int, int>;
+1. add and sum version
 
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// if data is complex, use node struct to manage them
-
-// 1. add and sum version
-
+```cpp
 template <typename T>
 class SegmentTree
 {
@@ -86,9 +73,11 @@ public:
         }
     }
 };
+```
 
-// 2. change and sum version
+2. change and sum version
 
+```cpp
 template <typename T>
 class SegTreeLazyRangeSet
 {
@@ -176,9 +165,11 @@ public:
     T range_sum(int l, int r) { return range_sum(l, r, 0, end, root); }
     void range_set(int l, int r, int val) { range_set(l, r, val, 0, end, root); }
 };
+```
 
-// 3. add, mul and sum version
+3. add, mul and sum version
 
+```cpp
 template <typename T>
 class SegmentTree_pro
 {
@@ -273,9 +264,11 @@ public:
         }
     }
 };
+```
 
-// 4. add and max version (no sum)
+4. add and max version (no sum)
 
+```cpp
 template <typename T>
 class SegmentTree_max
 {
@@ -344,9 +337,11 @@ public:
         }
     }
 };
+```
 
-// 另一种思路：维护差分数组的正负个数，区间最值（都为0则相等）
+5. 区间全相等、区间单增、单减
 
+```cpp
 template <typename T>
 class SegmentTree1
 {
@@ -683,3 +678,7 @@ public:
         }
     }
 };
+```
+
+6. 上面三棵树维护区间信息的另一种思路：维护差分数组的正负个数，区间最值（都为0则相等）
+

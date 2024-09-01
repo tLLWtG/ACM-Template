@@ -1,21 +1,8 @@
-#include <bits/stdc++.h>
+### Heap
 
-using namespace std;
+1. 普通堆
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// 1. normal heap
-
+```cpp
 class heap
 {
 private:
@@ -84,9 +71,11 @@ public:
         return h[1];
     }
 };
+```
 
-// 2. kth element
+2. 对顶堆（kth element）
 
+```cpp
 class kth_heap
 {
 private:
@@ -135,3 +124,4 @@ public:
         return q1.top();
     }
 };
+```

@@ -1,22 +1,10 @@
-#include <bits/stdc++.h>
+### Persistent_DS
 
-using namespace std;
+1. persistent array
 
-using ll = long long;
-using pii = pair<int, int>;
+> partially persistent
 
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// 1. persistent array
-// (partially persistent)
-
+```cpp
 namespace pa
 {
     vector<pii> arr[100005];
@@ -36,9 +24,11 @@ namespace pa
             arr[i].pb({0, init[i]});
     }
 }
+```
 
-// 2. persistent segment tree
+2. persistent segment tree
 
+```cpp
 namespace PST
 {
 #define ls(x) tree[x].ls
@@ -121,8 +111,11 @@ namespace PST
         }
     }
 }
+```
 
-// 3. president tree
+3. president tree
+
+```cpp
 namespace PT
 {
 #define ls(x) (tr[x].l)
@@ -200,3 +193,5 @@ namespace PT
         }
     }
 }
+```
+

@@ -1,26 +1,10 @@
-#include <bits/stdc++.h>
+### Segment_Tree_Beats
 
-using namespace std;
+> 可以以O((n + q)logn)的复杂度处理区间cmax / cmin, 区间求和的问题
+> 
+> 如果在以上操作加上区间加, 复杂度上界为O((n + q)log^2n), 实际运用可能为O((n + q)logn)
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-/*
-segment tree beats
-可以以O((n + q)logn)的复杂度处理区间cmax / cmin, 区间求和的问题
-如果在以上操作加上区间加, 复杂度上界为O((n + q)log^2n), 实际运用可能为O((n + q)logn)
-*/
-
-// 数组大小
+```cpp
 #define maxn 100005
 
 int N;
@@ -151,3 +135,5 @@ public:
         memset(t + 1, 0, sizeof(tree) * (N << 2));
     }
 };
+```
+

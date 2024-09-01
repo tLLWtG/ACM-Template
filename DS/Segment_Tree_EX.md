@@ -1,23 +1,8 @@
-#include <bits/stdc++.h>
+### Segment_Tree_EX
 
-using namespace std;
+1. dynamic node (and cnt) SegmentTree
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// cp from Pecco
-
-// dynamic node (and cnt) SegmentTree
-
+```cpp
 namespace DST
 {
 #define ls(x) tree[x].ls
@@ -113,36 +98,39 @@ namespace DST
         return kth(r);
     }
 }
+```
 
-// merge segment tree
-//
+2. merge segment tree
+
+```cpp
 // 1. new root
-// int merge(int a, int b, int l = 1, int r = nn)
-// {
-//     if (!a || !b)
-//         return a + b; // 如果有一个为空，就返回不为空的；如果都为空就返回空
-//     int c = ++cnt;
-//     if (l == r)
-//         return T[c].v = T[a].v + T[b].v, c;
-//     int mid = l + r >> 1;
-//     T[c].ls = merge(T[a].ls, T[b].ls, l, mid);
-//     T[c].rs = merge(T[a].rs, T[b].rs, mid + 1, r);
-//     pushup(c);
-//     return c;
-// }
-//
+int merge(int a, int b, int l = 1, int r = nn)
+{
+    if (!a || !b)
+        return a + b; // 如果有一个为空，就返回不为空的；如果都为空就返回空
+    int c = ++cnt;
+    if (l == r)
+        return T[c].v = T[a].v + T[b].v, c;
+    int mid = l + r >> 1;
+    T[c].ls = merge(T[a].ls, T[b].ls, l, mid);
+    T[c].rs = merge(T[a].rs, T[b].rs, mid + 1, r);
+    pushup(c);
+    return c;
+}
+
 // 2. use a's root
-// more efficient
-//
-// int merge(int a, int b, int l = 1, int r = nn)
-// {
-//     if (!a || !b)
-//         return a + b;
-//     if (l == r)
-//         return T[a].v += T[b].v, a;
-//     int mid = l + r >> 1;
-//     T[a].ls = merge(T[a].ls, T[b].ls, l, mid);
-//     T[a].rs = merge(T[a].rs, T[b].rs, mid + 1, r);
-//     pushup(a);
-//     return a;
-// }
+more efficient
+
+int merge(int a, int b, int l = 1, int r = nn)
+{
+    if (!a || !b)
+        return a + b;
+    if (l == r)
+        return T[a].v += T[b].v, a;
+    int mid = l + r >> 1;
+    T[a].ls = merge(T[a].ls, T[b].ls, l, mid);
+    T[a].rs = merge(T[a].rs, T[b].rs, mid + 1, r);
+    pushup(a);
+    return a;
+}
+```

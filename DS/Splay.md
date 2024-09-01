@@ -1,19 +1,6 @@
-#include <bits/stdc++.h>
+### Splay
 
-using namespace std;
-
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
+```cpp
 template <typename T>
 class Balanced_Binary_Tree
 {
@@ -194,3 +181,5 @@ public:
         return r;
     }
 };
+```
+

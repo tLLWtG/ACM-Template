@@ -1,23 +1,8 @@
-#include <bits/stdc++.h>
+### k-D_Tree
 
-using namespace std;
+> 查询某个点集离某个点距离前m小的点
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// cp from IIIndex
-
-// 查询某个点集离某个点距离前m小的点
-
+```cpp
 namespace KDtree
 {
     const int maxn = 2e5 + 100;
@@ -139,3 +124,5 @@ namespace KDtree
         }
     }
 }
+```
+
