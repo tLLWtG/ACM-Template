@@ -1,21 +1,8 @@
-#include <bits/stdc++.h>
+### Big_Integer
 
-using namespace std;
+1. __int128
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// __int128 for gcc (64)
-
+```cpp
 __int128 read()
 {
     __int128 x = 0, f = 1;
@@ -46,10 +33,15 @@ void print(__int128 x)
     reverse(all(op));
     cout << op;
 }
+```
 
-// + - * / = compare cout
-// link: https://github.com/Baobaobear/MiniBigInteger
+2. BigIntTiny
 
+> \+ \- \* / = compare cout
+>
+> link: https://github.com/Baobaobear/MiniBigInteger
+
+```cpp
 struct BigIntTiny
 {
     int sign;
@@ -197,3 +189,5 @@ struct BigIntTiny
     bool operator>=(const BigIntTiny &b) const { return !(*this < b); }
     bool operator!=(const BigIntTiny &b) const { return !(*this == b); }
 };
+```
+

@@ -1,22 +1,6 @@
-#include <bits/stdc++.h>
+### Mo's_Algorithm
 
-using namespace std;
-
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// cp from pecco
-// https://www.luogu.com.cn/problem/SP3267
-
+```cpp
 namespace normalMo
 {
     const int MAXN = 30005, MAXQ = 200005, MAXM = 1000005;
@@ -75,3 +59,5 @@ namespace normalMo
             cout << ans[i] << endl; // 按编号顺序输出
     }
 }
+```
+

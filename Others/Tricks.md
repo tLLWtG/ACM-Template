@@ -1,4 +1,6 @@
-# A collection of useful tricks
+### Tricks
+
+> A collection of useful tricks
 
 ---
 

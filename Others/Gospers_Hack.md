@@ -1,19 +1,6 @@
-#include <bits/stdc++.h>
+### Gospers_Hack
 
-using namespace std;
-
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
+```cpp
 void GospersHack(int k, int n)
 {
     int cur = (1 << k) - 1;
@@ -40,3 +27,5 @@ void GospersHack(int k, int n)
 // 11001
 // 11010
 // 11100
+```
+

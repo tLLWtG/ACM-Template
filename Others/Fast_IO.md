@@ -1,19 +1,8 @@
-#include <bits/stdc++.h>
+### Fast_IO
 
-using namespace std;
+1. fread version
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
+```cpp
 namespace IO
 {
     char buf[1 << 15], *S, *T;
@@ -74,7 +63,11 @@ namespace IO
         ~flusher() { print(); }
     } __flusher__;
 } // namespace IO
+```
 
+2. old version
+
+```cpp
 namespace IO_old // pay attention to overflowing case
 {
     inline void read(int &x)
@@ -100,4 +93,6 @@ namespace IO_old // pay attention to overflowing case
             putchar(Stack[top--] | 48);
         putchar(c);
     }
-} // namespace IO
+}
+```
+
