@@ -1,3 +1,6 @@
+### Snippets_C
+
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -17,3 +20,5 @@ int main()
     // printf("Total time: %lf\n", endtime);
     return 0;
 }
+```
+

@@ -1,3 +1,6 @@
+### Snippets_Cpp_full
+
+```cpp
 #include <algorithm>
 #include <array>
 #include <bitset>
@@ -59,3 +62,5 @@ int main()
     // cout << "Total time: " << endtime << endl;
     return 0;
 }
+```
+
