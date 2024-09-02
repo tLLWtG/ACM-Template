@@ -1,21 +1,8 @@
-#include <bits/stdc++.h>
+### KMP
 
-using namespace std;
+> index starts from 1: s, p
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// index starts from 1: s, p
-
+```cpp
 namespace KMP
 {
     const int N = 100010, M = 1000010;
@@ -52,3 +39,5 @@ namespace KMP
         }
     }
 }
+```
+

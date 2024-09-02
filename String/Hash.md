@@ -1,21 +1,8 @@
-#include <bits/stdc++.h>
+### Hash
 
-using namespace std;
+1. string hash
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// string hash
-
+```cpp
 const int M = 1e9 + 7;
 const int B = 233;
 
@@ -26,9 +13,11 @@ int get_hash(const string &s)
         res = (ll(res) * B + s[i]) % M;
     return res;
 }
+```
 
-// double hash
+2. double hash
 
+```cpp
 const int mod1 = 19260817;
 const int mod2 = 1e9 + 7;
 
@@ -42,9 +31,11 @@ pii get_hash(string &s)
     }
     return {r1, r2};
 }
+```
 
-// substring hash(with prefix)
+3. substring hash(with prefix)
 
+```cpp
 const int N = 1e5 + 5, P = 133;
 unsigned long long h[N], p[N];
 
@@ -65,7 +56,11 @@ void prepro(string &str)
         h[i + 1] = h[i] * P + str[i];
     }
 }
+```
 
+4. double substring hash(with prefix)
+
+```cpp
 namespace Double_Pre_Hash
 {
     using pll = pair<ll, ll>;
@@ -104,3 +99,5 @@ namespace Double_Pre_Hash
         }
     }
 }
+```
+

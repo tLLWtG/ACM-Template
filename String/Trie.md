@@ -1,21 +1,8 @@
-#include <bits/stdc++.h>
+### Trie
 
-using namespace std;
+1. dynamic
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// 1. characters
-
+```cpp
 class Trie
 {
 private:
@@ -59,12 +46,16 @@ public:
         return root->exist;
     }
 };
+```
 
-// MAXN = N * len
+2. static
+   
+> MAXN = N * len
 
+```cpp
 #define MAXN 100005
 
-struct Trie1
+struct Trie
 {
     int nex[MAXN][26], cnt;
     bool exist[MAXN];
@@ -94,9 +85,11 @@ struct Trie1
         return exist[p];
     }
 };
+```
 
-// 2. 01
+3. for 01
 
+```cpp
 struct Trie_01
 {
     int nex[MAXN][2], cnt;
@@ -127,3 +120,5 @@ struct Trie_01
         return exist[p];
     }
 };
+```
+
