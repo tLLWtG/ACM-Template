@@ -1,21 +1,8 @@
-#include <bits/stdc++.h>
+### Poly
 
-using namespace std;
+1. 求原根
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// 求原根
-
+```cpp
 namespace Root
 {
     ll pow(const ll x, const ll n, const ll p)
@@ -51,7 +38,11 @@ namespace Root
         throw;
     }
 }
+```
 
+2. Poly
+
+```cpp
 typedef long long ll;
 typedef unsigned long long ull;
 typedef vector<int> poly;
@@ -372,3 +363,5 @@ int main()
     // cout << "Total time: " << endtime << endl;
     return 0;
 }
+```
+

@@ -1,21 +1,10 @@
-#include <bits/stdc++.h>
+### Exgcd
 
-using namespace std;
+> ax + by = gcd(a, b)
 
-using ll = long long;
-using pii = pair<int, int>;
+1. version 1
 
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// ax + by = gcd(a, b)
-
+```cpp
 ll exgcd(ll a, ll b, ll &x, ll &y)
 {
     if (b == 0)
@@ -27,7 +16,11 @@ ll exgcd(ll a, ll b, ll &x, ll &y)
     y -= a / b * x;
     return d;
 }
+```
 
+2. version 2
+
+```cpp
 int exgcd2(int a, int b, int &x, int &y)
 {
     x = 1, y = 0;
@@ -41,3 +34,5 @@ int exgcd2(int a, int b, int &x, int &y)
     }
     return a1;
 }
+```
+

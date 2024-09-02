@@ -1,23 +1,14 @@
-#include <bits/stdc++.h>
+### Cantor_Expansion
 
-using namespace std;
+1. 康托展开
+   
+> 用于求某排列的排名
+> 
+> $rk=1+\sum_{i=1}^{n}{A[i]×(n−i)!}$
+> 
+> 其中 $A[i]$ 为 $\sum_{j=i}^{n}{[a[j]<a[i]]}$，朴素求 $A$ 是 $O(n^2)$，可以考虑树状数组优化。
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// 康托展开用于求某排列的排名
-// rk=1+\sum_{i=1}^{n}{A[i]×(n−i)!}
-// 其中 A[i] 为 \sum_{j=i}^{n}{[a[j]<a[i]]}，朴素求 A 是 O(n^2)，可以考虑树状数组优化
-
+```cpp
 class biTree
 {
 private:
@@ -77,10 +68,13 @@ ll cantor()
 
     return ans;
 }
+```
 
-// 逆康托展开
-// 类似于进制转换，不断 % (n-i)!, /(n-1)! 就可以得到 A 数组，然后就可以还原出原排列。
+2. 逆康托展开
 
+> 类似于进制转换，不断 $\mod (n-i)!$, $/(n-1)!$ 就可以得到 $A$ 数组，然后就可以还原出原排列。
+
+```cpp
 vector<int> incantor(int x, int n) {
     x--;
     vector<int> res(n), fac(n);
@@ -107,3 +101,5 @@ vector<int> incantor(int x, int n) {
     }
     return res;
 }
+```
+

@@ -1,21 +1,8 @@
-#include <bits/stdc++.h>
+### GCD
 
-using namespace std;
+1. 减法
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// minus, for big numbers
-
+```cpp
 ll gcd1(ll a, ll b)
 {
     // if (a == 1 || b == 1)
@@ -36,9 +23,11 @@ ll gcd1(ll a, ll b)
     }
     return a;
 }
+```
 
-// Euclid
+2. Euclid
 
+```cpp
 ll gcd2(ll a, ll b)
 {
     while (b != 0)
@@ -49,9 +38,11 @@ ll gcd2(ll a, ll b)
     }
     return a;
 }
+```
 
-// Euclid for multiple numbers
+3. multiple numbers
 
+```cpp
 ll gcd3(vector<ll> &v)
 {
     ll res = v[0];
@@ -59,3 +50,5 @@ ll gcd3(vector<ll> &v)
         res = gcd2(res, v[i]);
     return res;
 }
+```
+

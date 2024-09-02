@@ -1,21 +1,8 @@
-#include <bits/stdc++.h>
+### Combination
 
-using namespace std;
+1. 朴素版本
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// 1.
-
+```cpp
 ll comb(ll n, ll k)
 {
     ll res = 1;
@@ -27,9 +14,13 @@ ll comb(ll n, ll k)
     }
     return res;
 }
+```
 
-// 2. O(n)
+2. 线性逆元版本
 
+> $C_{x}^{y}$
+
+```cpp
 namespace comb
 {
     int n, p;
@@ -53,11 +44,12 @@ namespace comb
     }
     int C(int x, int y) { return (ll)fac[x] * finv[y] % p * finv[x - y] % p; }
 }
-// (x)
-// (y)
+```
 
-// 3. Yanghui triangle
 
+3. 杨辉三角形
+
+```cpp
 int c[2005][2005];
 
 void build(int p)
@@ -69,3 +61,5 @@ void build(int p)
         for (int j = 1; j <= i; j++)
             c[i][j] = (c[i - 1][j] + c[i - 1][j - 1]) % p;
 }
+```
+

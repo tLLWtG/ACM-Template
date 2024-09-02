@@ -1,19 +1,8 @@
-#include <bits/stdc++.h>
+### Euler's_Totient_Function
 
-using namespace std;
+1. 朴素版本
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
+```cpp
 int Euler_phi(int n)
 {
     ll ans = n;
@@ -28,8 +17,11 @@ int Euler_phi(int n)
         ans = ans / n * (n - 1);
     return ans;
 }
+```
 
+2. 筛
 
+```cpp
 vector<int> primes, phi;
 vector<bool> nop;
 void Euler(int n)
@@ -58,3 +50,5 @@ void Euler(int n)
         }
     }
 }
+```
+

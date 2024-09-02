@@ -1,19 +1,6 @@
-#include <bits/stdc++.h>
+### Lucas
 
-using namespace std;
-
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
+```cpp
 namespace comb
 {
     int n, p;
@@ -46,3 +33,5 @@ ll Lucas(ll n, ll m, ll p)
         return 0;
     return (comb::C(n % p, m % p) * Lucas(n / p, m / p, p)) % p;
 }
+```
+

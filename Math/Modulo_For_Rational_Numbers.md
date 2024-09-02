@@ -1,21 +1,8 @@
-#include <bits/stdc++.h>
+### Modulo_For_Rational_Numbers
 
-using namespace std;
+> a / b
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// a / b
-
+```cpp
 ll exgcd(ll a, ll b, ll &x, ll &y)
 {
     if (b == 0)
@@ -54,3 +41,5 @@ ll getint(ll p)
     }
     return res;
 }
+```
+

@@ -1,21 +1,8 @@
-#include <bits/stdc++.h>
+### Prime
 
-using namespace std;
+1. the Sieve of Eratosthenes
 
-using ll = long long;
-using pii = pair<int, int>;
-
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// 1. the Sieve of Eratosthenes
-
+```cpp
 #define MAXN 100005
 
 vector<bool> nop(MAXN, false);
@@ -33,9 +20,11 @@ void init1()
         }
     }
 }
+```
 
-// 2. Euler sieve
+2. Euler sieve
 
+```cpp
 bool isnp[MAXN];
 vector<int> primes;
 void init2()
@@ -55,11 +44,13 @@ void init2()
         }
     }
 }
+```
 
-// 3. Deterministic Miller–Rabin primality test
+3. Deterministic Miller–Rabin primality test
 
-// for 1 ~ (1 << 64)
+> for 1 ~ (1 << 64)
 
+```cpp
 namespace millerRabin
 {
     ll qpow(ll a, ll t, ll mod)
@@ -110,9 +101,11 @@ namespace millerRabin
         return 1;
     }
 }
+```
 
-// prime factorization
+4. prime factorization
 
+```cpp
 void prime_factor(int x)
 {
     for (int i = 2; i <= x / i; ++i)
@@ -128,3 +121,5 @@ void prime_factor(int x)
         // do sth.
     }
 }
+```
+

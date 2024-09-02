@@ -1,23 +1,14 @@
-#include <bits/stdc++.h>
+### Chinese_Remainder_Theorem
 
-using namespace std;
+> x == m1 (mod a1)
+> 
+> x == m2 (mod a2)
+> 
+> ...
 
-using ll = long long;
-using pii = pair<int, int>;
+1. a1, a2, a3 ... 保证互质
 
-#define pb push_back
-#define all(x) (x).begin(), (x).end()
-#define fi first
-#define se second
-#define endl '\n'
-#define debug(x) { cerr << #x << " = " << x << endl; }
-
-/*-------------------------------------------*/
-
-// x == m1 (mod a1)
-// x == m2 (mod a2)
-// ...
-
+```cpp
 ll exgcd(ll a, ll b, ll &x, ll &y)
 {
     if (b == 0)
@@ -29,8 +20,6 @@ ll exgcd(ll a, ll b, ll &x, ll &y)
     y -= a / b * x;
     return d;
 }
-
-// a1, a2, a3 ... 保证互质
 
 void CRT()
 {
@@ -50,9 +39,11 @@ void CRT()
     }
     cout << (ans % M + M) % M << endl;
 }
+```
 
-// a1, a2, a3 ... 不保证互质
+2. a1, a2, a3 ... 不保证互质
 
+```cpp
 void exCRT()
 {
     int n;
@@ -76,3 +67,5 @@ void exCRT()
     }
     cout << (m1 % a1 + a1) % a1 << endl;
 }
+```
+
