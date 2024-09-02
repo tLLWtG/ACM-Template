@@ -5,6 +5,7 @@
 | [Base-Algorithm](https://github.com/tLLWtG/ACM-Template/tree/main/Base-Algorithm) | [DP](https://github.com/tLLWtG/ACM-Template/tree/main/DP) | [DS](https://github.com/tLLWtG/ACM-Template/tree/main/DS) | [Game](https://github.com/tLLWtG/ACM-Template/tree/main/Game) | [Geometry](https://github.com/tLLWtG/ACM-Template/tree/main/Geometry) | [Graph](https://github.com/tLLWtG/ACM-Template/tree/main/Graph) | [Math](https://github.com/tLLWtG/ACM-Template/tree/main/Math) | [Others](https://github.com/tLLWtG/ACM-Template/tree/main/Others) | [Snippets](https://github.com/tLLWtG/ACM-Template/tree/main/Snippets) | [String](https://github.com/tLLWtG/ACM-Template/tree/main/String) |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 
+> .cpp 文件在 `docs/_code` 目录下，可直接打印的 pdf 版本见 [releases](https://github.com/tLLWtG/ACM-Template/releases)。
 
 # Full List
 
