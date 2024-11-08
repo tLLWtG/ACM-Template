@@ -29,19 +29,19 @@
 
 * k-D_Tree, KMP, Kosaraju, Kruskal
 
-* LCA, LCM, Lucas
+* LCA, LCM, Linear_Basis, Lucas
 
-* Matching, MaxFlow, Mo's_Algorithm, ModInt, Modular_Multiplicative_Inverse, Modulo_For_Rational_Numbers, Monotone_Queue, Monotone_Stack, Multi-SG
+* Manacher, Matching, MaxFlow, Mo's_Algorithm, ModInt, Modular_Multiplicative_Inverse, Modulo_For_Rational_Numbers, Monotone_Queue, Monotone_Stack, Multi-SG
 
 * n_D_Prefix_Sum, Numbers
 
-* Persistent_DS, Pigeonhole_Principle, Pollard_Rho, Poly, Prim, Prime
+* pb_ds, Persistent_DS, Pigeonhole_Principle, Pollard_Rho, Poly, Prim, Prime
 
 * Quick_Pow
 
 * Rotating_Calipers
 
-* Search, Segment_Tree, Segment_Tree_Beats, Segment_Tree_EX, SG, Snippets_C, Snippets_Cpp, Snippets_Cpp_win, Snippets_others, Sort, Sparse_Table, Splay, Sweep_Line
+* Search, Segment_Tree, Segment_Tree_Beats, Segment_Tree_EX, Seq_Automaton, SG, Snippets_C, Snippets_Cpp, Snippets_Cpp_win, Snippets_others, Sort, Sparse_Table, Splay, Sweep_Line
 
 * Tarjan, Ternary_Search, Topology_Sort, Tricks, Trie
 

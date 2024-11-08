@@ -1,5 +1,9 @@
 # UPD History
 
+### 2024.11.08
+
+* Linear_Basis, pb_ds, Manacher, Seq_Automaton
+
 ### 2024.09.01
 
 * Biconnected_Component, MaxFlow, Cantor_Expansion, Numbers, Rotating_Calipers, Sweep_Line
